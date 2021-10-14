@@ -1,0 +1,58 @@
+.dashboard {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	margin-top: 50px;
+	margin-left: 100px;
+	margin-right: 100px;
+	background: rgba(0, 255, 34, 0.425);
+
+	h2 {
+		font-size: 4.8rem;
+		font-weight: 500;
+		text-align: start;
+
+		em {
+			color: #f60000;
+			font-style: normal;
+		}
+	}
+
+	&-text {
+		margin-top: 20px;
+		font-size: 1.8rem;
+		font-weight: 400;
+		text-align: start;
+	}
+
+	&__graphs {
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+
+		&__charts {
+			display: flex;
+			flex-direction: column;
+			width: 70%;
+			height: max-content;
+	
+			&-smalls {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				// background-color: rgba(93, 19, 136, 0.582);
+				height: 263px;
+				margin-top: 30px;
+			}
+		}
+
+		&__nutriments {
+			margin-left: 31px;
+			margin-top: 80px;
+			width: 30%;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+	}
+}
