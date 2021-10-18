@@ -1,6 +1,11 @@
 .radarChart {
 	background-color: #282D30;
-	height: 100%;
+	height: 263px;
 	width: 31%;
 	border-radius: 5px;
+
+	img {
+		width: 100%;
+		height: 100%;
+	}
 }

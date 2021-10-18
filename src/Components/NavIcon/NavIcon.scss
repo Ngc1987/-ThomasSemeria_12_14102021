@@ -1,4 +1,4 @@
-.verticalLayout_icon {
+.navIcom {
 	width: 64px;
 	height: 64px;
 	// width: 58.5%;
@@ -6,4 +6,7 @@
 	border-radius: 6px;
 	background-color: #fff;
 	margin-top: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }

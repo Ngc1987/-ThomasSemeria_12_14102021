@@ -12,7 +12,7 @@ main {
 
 body {
   margin: 0 auto;
-	background: rgba(0, 255, 34, 0.425);
+	/* background: rgba(0, 102, 255, 0.425); */
 }
 
 *,  ::before, ::after {

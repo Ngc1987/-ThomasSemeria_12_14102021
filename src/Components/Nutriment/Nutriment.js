@@ -14,7 +14,6 @@ export default function Nutriment(props) {
 					props.nutriment === "Protéines" ? "nutriment__pic blue" :
 					"nutriment__pic pink"
 					
-
 		}>
 			<img src={props.nutriment === "Calories" ? fire :
 					props.nutriment === "Glucides" ? apple :

@@ -1,5 +1,6 @@
 .App {
-  min-height: 1024px;
+  min-height: 724px;
+  max-height: 724px;
 }
 
 .App-logo {
