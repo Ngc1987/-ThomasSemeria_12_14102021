@@ -1,0 +1,58 @@
+.home {
+	margin-top: 50px;
+	margin-left: 100px;
+	margin-bottom: 100px;
+	margin-right: 100px;
+	width: 100%;
+
+
+	h2 {
+		font-size: 4.8rem;
+    	font-weight: 500;
+	}
+
+	em {
+		color: #f60000;
+		font-style: normal;
+	}
+	.descript {
+		width: 100%;
+		max-width: 500px;
+
+		p {
+			margin-top: 40px;
+			font-size: 1.6rem;
+		}
+	}
+	
+
+	.btn-user12 button{
+		padding: 6px 20px;
+		border-radius: 15px;
+		margin-top: 40px;
+		font-size: 1.5rem;
+		font-weight: 500;
+		// width: 100px;
+		border: 2px solid black;
+		transition: all 0.4s ease;
+
+		&:hover  {
+			box-shadow: 0 0 6px #f60000;
+		}
+	}
+	.btn-user18 button{
+		padding: 6px 20px;
+		border-radius: 15px;
+		margin-top: 40px;
+		margin-left: 40px;
+		font-size: 1.5rem;
+		font-weight: 500;
+		// width: 100px;
+		border: 2px solid black;
+		transition: all 0.4s ease;
+
+		&:hover  {
+			box-shadow: 0 0 6px #f60000;
+		}
+	}
+}

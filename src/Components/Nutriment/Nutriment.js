@@ -6,7 +6,7 @@ import chicken from "../../assets/chicken.svg"
 import fire from "../../assets/fire.svg"
 
 export default function Nutriment(props) {
-	console.log(props.logo)
+	// console.log(props.logo)
 	return (
 		<article className="nutriment" >
 		<div className={props.nutriment === "Calories" ? "nutriment__pic red" :
@@ -24,7 +24,7 @@ export default function Nutriment(props) {
 		</div>
 
 			<div className="nutriment-info">
-				<h3>{props.quantity}</h3>
+				<h3>{props.nutriment === "Calories" ? props.quantity + "kCal" : props.quantity + "g"}</h3>
 				<p>{props.nutriment}</p>
 			</div>
 		</article>
