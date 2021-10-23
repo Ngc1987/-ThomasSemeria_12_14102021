@@ -1,6 +1,7 @@
 .nutriment {
 	height: 124px;
 	width: 100%;
+	max-width: 258px;
 	border-radius: 5px;
 	background-color: #FBFBFB;
 	display: flex;
@@ -67,6 +68,26 @@
 			color: #74798C;
 			font-size: 1.4rem;
 			font-weight: 500;
+		}
+	}
+}
+
+
+@media screen and (max-width: 1400px) {
+	.nutriment {
+		flex-direction: column;
+		width: 124px;
+
+		&__pic {
+			margin-left: 0;
+		}
+		&-info {
+			margin-left: 0;
+			align-items: center;
+
+			p {
+				text-align: center;
+			}
 		}
 	}
 }

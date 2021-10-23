@@ -1,6 +1,39 @@
 .lineChart {
 	background-color: #FF0000;
 	height: 263px;
-	width: 31%;
+	width: 258px;
 	border-radius: 5px;
+	position: relative;
+	margin-top: 30px;
+
+	&-title {
+		position: absolute;
+		top: 30px;
+		left: 34px;
+		font-weight: 500;
+		font-size: 1.5rem;
+		color: rgba(255, 255, 255, 0.514);
+		width: 150px;
+		height: 50px;
+	}
+}
+
+.days {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	position: absolute;
+	bottom: 25px;
+	width: 100%;
+
+	p {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		width: calc(100% / 7);
+		font-weight: 500;
+		font-size: 1.2rem;
+		color: rgba(255, 255, 255, 0.514);
+	}
 }
