@@ -5,6 +5,7 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import Home from './Pages/Home/Home';
 import VerticalLayout from './Components/VerticalLayout/VerticalLayout';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
+// import { RequestProvider } from './CallsApis/requestContainer';
 
 
 // fetch("http://localhost:3000/user/12")
@@ -15,11 +16,13 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 
 function App() {
   return (
+
+    
     <div className="App">
           <Router>
               <Header />
-              <main>
                 <VerticalLayout />
+              <main>
                 <Switch>
                   <Route path="/" exact component={Home} />
                   <Route path="/user" component={Dashboard} />

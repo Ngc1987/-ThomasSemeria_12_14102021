@@ -1,5 +1,5 @@
 .lineChart {
-	background-color: #FF0000;
+	background-color: #ff0000;
 	height: 263px;
 	width: 258px;
 	border-radius: 5px;
@@ -36,4 +36,12 @@
 		font-size: 1.2rem;
 		color: rgba(255, 255, 255, 0.514);
 	}
+}
+
+
+.custom-tooltip {
+	background-color: #fff;
+	padding: 8px 13px;
+	font-size: 1rem;
+	font-weight: bold;
 }

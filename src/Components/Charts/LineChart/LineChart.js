@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react'
 import ReactDOM from "react-dom";
 import "./LineChart.scss"
-import userAveragSes from "../../Mocks/user/12/average-sessions.json"
+import userAveragSes from "../../Mocks/user/18/average-sessions"
+// import userAveragSes2 from "../../Mocks/user/12"
 import * as d3 from "d3";
 
 
-
+// console.log(userAveragSes2)
 
 export default function LineChart() {
 

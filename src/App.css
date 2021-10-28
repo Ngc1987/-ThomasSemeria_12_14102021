@@ -14,6 +14,12 @@
   }
 }
 
+main {
+  
+	width: calc(100vw - 344px);
+	margin-left: 144px;
+}
+
 .App-header {
   background-color: #35383d44;
   height: 100vh;

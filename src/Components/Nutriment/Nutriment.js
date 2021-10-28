@@ -24,10 +24,8 @@ export default function Nutriment(props) {
 		</div>
 
 			<div className="nutriment-info">
-				<h3>120kCal</h3>
-				<p>Protéines</p>
-				{/* <h3>{props.nutriment === "Calories" ? props.quantity + "kCal" : props.quantity + "g"}120kCal</h3>
-				<p>{props.nutriment}</p> */}
+				<h3>{props.nutriment === "Calories" ? props.quantity + "kCal" : props.quantity + "g"}</h3>
+				<p>{props.nutriment}</p>
 			</div>
 		</article>
 	)
