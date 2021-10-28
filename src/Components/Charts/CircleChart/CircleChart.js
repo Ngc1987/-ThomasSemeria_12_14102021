@@ -9,20 +9,22 @@ export default function CircleChart() {
 	const [data, setScore] = useState(userDatas)
 
 
-	let score = [{"name": "score", "value": (data.todayScore * 100)}]
-	console.log(data, score)
+	let score = [{"name": "score", "value": (data.todayScore * 100)},
+	{"name": "score", "value": 6},
+	{"name": "score", "value": 50}]
+	// console.log(data, score)
 	return (
 		<article className="circleChart">
 			<RadialBarChart 
 				width={258} 
 				height={263} 
-				innerRadius="10%" 
-				outerRadius="80%" 
+				innerRadius="45%" 
+				outerRadius="75%" 
 				data={score} 
-				startAngle={360} 
-				endAngle={0}
+				startAngle={90} 
+				endAngle={450}
 				>
-				<RadialBar minAngle={15} label={{ fill: '#666', position: 'insideStart' }} 
+				<RadialBar minAngle={5} label={{ fill: '#666', position: 'center' }} 
 					background clockWise={true} dataKey="value" />
 				{/* <Legend iconSize={10} width={120} height={140} layout='vertical' verticalAlign='middle' align="right" /> */}
 				<Tooltip />

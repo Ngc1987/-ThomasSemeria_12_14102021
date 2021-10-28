@@ -7,8 +7,17 @@ const userId = window.location.pathname.split("/")[2];
 const createUrl = (base, path) => `${base}${path}`;
 
 
-export const getDatas = () => {
+export const getUserDatas = (userId) => {
 	return createUrl(BASE_URL, `user/${userId}.json`)
+}
+export const getActivityDatas = (userId) => {
+	return createUrl(BASE_URL, `user/${userId}/activity.json`)
+}
+export const getSessionsDatas = (userId) => {
+	return createUrl(BASE_URL, `user/${userId}/average-sessions.json`)
+}
+export const getPerfDatas = () => {
+	return createUrl(BASE_URL, `user/${userId}/performance.json`)
 }
 	// {
 	// 	method: "GET",

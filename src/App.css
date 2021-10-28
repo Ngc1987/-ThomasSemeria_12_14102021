@@ -16,7 +16,7 @@
 
 main {
   
-	width: calc(100vw - 344px);
+	width: calc(100% - 344px);
 	margin-left: 144px;
 }
 

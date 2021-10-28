@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import useApiResult from "./useApiResult";
-import { getDatas } from "../CallsApis/requests";
+import { getUserDatas } from "../CallsApis/requests";
 
 // export function getUserDatas(userId) {
 // 	return fetch(`/user/${userId}.json`)
@@ -10,7 +10,7 @@ import { getDatas } from "../CallsApis/requests";
 
 const useUserDatas = () => {
 
-	const url = useMemo(() => getDatas(), [])
+	const url = useMemo(() => getUserDatas(), [])
 	// console.log(url)
 	return useApiResult(url)
 	// const [userDatas, setUserDatas] = useState([]);

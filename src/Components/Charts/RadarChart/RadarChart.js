@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import "./RadarChart.scss"
 import radar from "./radar.svg"
-import userPerf from "../../Mocks/user/12/performance.json"
+import userPerf from "../../Mocks/user/18/performance.json"
 import {Tooltip, ResponsiveContainer , RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar,Legend  } from 'recharts';
 
 
@@ -13,8 +13,9 @@ export default function RadarCharts() {
 
 	// console.log(data)
 
+	const max = (data.data.map((item) => item.value).sort((a, b) => a < b ? 1 : -1)[0] + 30)
 	
-	
+	// console.log(max)
 	
 	return (
 		<article className="radarChart" >
@@ -29,11 +30,11 @@ export default function RadarCharts() {
 				endAngle={90}
 				
 				>
-				<PolarGrid
+				{/* <PolarGrid
 				// innerRadius={0}
 				// outerRadius={0}
 
-				/>
+				/> */}
 				<PolarAngleAxis 
 					dataKey="1"
 					radius={0}
@@ -43,7 +44,7 @@ export default function RadarCharts() {
 					 />
 				<PolarRadiusAxis 
 					angle={30} 
-					domain={[0, 150]}
+					domain={[0, max]}
 					tick={false}
 					axisLine={false} 
 

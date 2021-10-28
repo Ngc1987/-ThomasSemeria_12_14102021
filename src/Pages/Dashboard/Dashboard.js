@@ -1,17 +1,17 @@
 // import React, {useState, useEffect } from 'react'
 import "./Dashboard.scss"
-import BarChart from '../../Components/Charts/BarChart/BarChart'
+import BarCharts from '../../Components/Charts/BarChart/BarChart'
 import LineChart2 from '../../Components/Charts/LineChart/LineChart2'
 import RadarCharts from '../../Components/Charts/RadarChart/RadarChart'
 import CircleChart from '../../Components/Charts/CircleChart/CircleChart'
 import Nutriment from '../../Components/Nutriment/Nutriment'
 import useUserDatas from '../../Hooks/useUserDatas'
-import { getDatas } from "../../CallsApis/requests";
+import { getUserDatas } from "../../CallsApis/requests";
 import {useState, useEffect, useMemo } from 'react'
 import Loader from "../../Components/Loader/Loader"
 // import { useEffect } from 'react/cjs/react.development'
 
-
+const userId = window.location.pathname.split("/")[2];
 
 export default function Dashboard() {
 	// const [userDatas, status] = useUserDatas()
@@ -19,13 +19,13 @@ export default function Dashboard() {
 	const [userDatas, setUserDatas] = useState([])
 	const [loader, setLoader] = useState(true)
 
-	const url =  getDatas()
+	// const url =  getDatas(userId)
 
 	// console.log(url)
 	useEffect(() => {
 		
 
-		fetch(url)
+		fetch(getUserDatas(userId))
 			.then((response) => {
 				// console.log(response)
 				return response.json()
@@ -35,7 +35,7 @@ export default function Dashboard() {
 				setUserDatas(result)
 				setLoader(false)
 			})
-	}, [url])
+	}, [])
 
 // console.log(userDatas)
 	if(loader) {
@@ -44,7 +44,7 @@ export default function Dashboard() {
 	return (
 
 
-		<div>
+		<>
 			
 			<section className="dashboard">
 			{/* <p>{userDatas.location.name}</p> */}
@@ -57,7 +57,7 @@ export default function Dashboard() {
 			<section className="dashboard__graphs">
 
 				<div className="dashboard__graphs__charts">
-					<BarChart />
+					<BarCharts />
 
 					<div className="dashboard__graphs__charts-smalls">
 						<LineChart2 />
@@ -79,7 +79,7 @@ export default function Dashboard() {
 				
 			</section>
 		</section>
-</div>
+</>
 			
 			
 			
