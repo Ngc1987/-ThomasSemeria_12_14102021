@@ -13,6 +13,24 @@
 		top: 0;
 		left: 0;
 	}
+
+	// tspan {
+	// 	color: white;
+
+	// }
+	.custom-tooltip-radar {
+		padding: 5px;
+		border-radius: 50%;
+		background-color: #282D30;
+		// box-shadow: 0 0 12px #282D30;
+		border: 1px solid white;
+		transition: all 0.4s ease;
+		
+
+		h1 {
+			color: white;
+		}
+	}
 }
 
 .recharts-wrapper {

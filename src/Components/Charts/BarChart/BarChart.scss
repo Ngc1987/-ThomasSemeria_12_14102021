@@ -116,6 +116,26 @@
 		background-color: black;
 		color: black;
 	}
+
+	.custom-cursor {
+		width: 60%;
+		height: 100%;
+		background-color: red;
+
+		h1 {
+			padding: 40px;
+		}
+	}
+
+	.recharts-tooltip-cursor {
+		width: 50px !important;
+		height: 100%;
+		background-color: red;
+
+		h1 {
+			padding: 40px;
+		}
+	}
 }
 
 tspan {

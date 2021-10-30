@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import "./BarChart.scss"
 import userActivity from "../../Mocks/user/18/activity"
-import {Tooltip, ResponsiveContainer, BarChart , CartesianGrid, Legend, XAxis, YAxis, Bar} from 'recharts';
+import {Tooltip, Rectangle, ResponsiveContainer, BarChart , CartesianGrid, Legend, XAxis, YAxis, Bar} from 'recharts';
 // import userAveragSes2 from "../../Mocks/user/12"
 import * as d3 from "d3";
 
@@ -19,6 +19,25 @@ const CustomizedToolTip = ({ active, payload, label }) => {
   
 	return null;
   };
+// const CustomizedCursor = ({ active, payload, label }) => {
+
+// 	console.log(label, payload, active)
+// 	if (payload && payload.length) {
+// 		return (
+// 			<div className="custom-cursor">
+// 			  <h1>Hello</h1>
+// 			</div>
+// 		)
+// 	}
+  
+// 	return null;
+//   };
+//   const CustomizedCursor = props => {
+// 	  console.log(props)
+//     const { x, y, width, height, stroke } = props;
+//     return <Rectangle fill="red" stroke="red" x={x} y={y} width={width} height={height} />;
+// };
+
 // const CustomizedLegend = ({ active, payload, label }) => {
 
 // 	console.log(label, payload, active)
@@ -65,7 +84,7 @@ export default function BarCharts(props) {
 				<BarChart width={"100%"} height={"40%"} data={userData}
 				barCategoryGap={"20%"}
 				barGap={8}
-				margin={{top: 90, bottom: 30, right:30}} 
+				margin={{top: 120, bottom: 30, right:30}} 
 				// maxBarSize={7}
 				>
 
@@ -78,10 +97,11 @@ export default function BarCharts(props) {
 					axisLine={false}
 					tickLine={false}
 					domain={['dataMin', 'dataMax']}
-					padding={{left: -30, right: -30}}
+					// padding={{left: -30, right: -30}}
 					// label="number"
 					tickMargin={25}
 					tick={{stroke: '#9B9EAC'}}
+					
 					
 					// tickSize={8}
 					tickFormatter={formatXAxis}
@@ -136,7 +156,9 @@ export default function BarCharts(props) {
 					  />
 					<Tooltip
 					label={userData}
+					cursor={{fill: "rgba(0,0,0,0.15)"}}
 					content={<CustomizedToolTip/>}
+					offset={35}
 					//  viewBox={{x: 50, y: 50, width: 50, height: 400}} 
 
 					 />

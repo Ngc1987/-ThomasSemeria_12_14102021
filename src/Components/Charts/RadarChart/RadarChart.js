@@ -2,7 +2,24 @@ import React, {useEffect, useState} from 'react'
 import "./RadarChart.scss"
 import radar from "./radar.svg"
 import userPerf from "../../Mocks/user/18/performance.json"
-import {Tooltip, ResponsiveContainer , RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar,Legend  } from 'recharts';
+import {Tooltip, ResponsiveContainer ,Label, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar,Legend  } from 'recharts';
+
+
+
+
+const CustomizedTooltip = ({ active, payload, data}) => {
+
+	// console.log(payload, active, data)
+	if (payload && payload.length) {
+		return (
+			<div className="custom-tooltip-radar">
+			  <h1 className="desc">{payload[0].value}</h1>
+			</div>
+		)
+	}
+  
+	return null;
+  };
 
 
 export default function RadarCharts() {
@@ -10,11 +27,32 @@ export default function RadarCharts() {
 	const userDatas = userPerf.data
 	const [data, setData] = useState(userDatas)
 
+	const divStyle = {
+		width: 'fit-content',
+		backgroundColor: "blue",
+		borderRadius: "50%",
+		fontSize: "1.5rem",
+		border: "none"
+	  };
 
-	// console.log(data)
+	console.log(data)
 
 	const max = (data.data.map((item) => item.value).sort((a, b) => a < b ? 1 : -1)[0] + 30)
 	
+	function tickFormat(props) {
+		
+		let number = props
+		// console.log(number, props, data.kind[(number)])
+
+
+		// for(let i = 0; i < data.kind.length; i++) {
+		// 	let name = data.kind[i + 1]
+		// 	console.log(name)
+		// 	// return name
+		// }
+
+		return data.kind[(props)]
+	}
 	// console.log(max)
 	
 	return (
@@ -26,38 +64,59 @@ export default function RadarCharts() {
 				width={263} 
 				height={258} 
 				data={data.data}
-				startAngle={-270}
-				endAngle={90}
+				startAngle={30}
+				endAngle={-330}
+				
 				
 				>
-				{/* <PolarGrid
-				// innerRadius={0}
+				<PolarGrid
+				// innerRadius={100}
 				// outerRadius={0}
+				polarRadius={[10, 30, 50, 70, 90]}
 
-				/> */}
+				/>
 				<PolarAngleAxis 
-					dataKey="1"
-					radius={0}
-					tick={false}
-					tickLine={false}
-					axisLine={false}
+					dataKey="kind"
+					// radius={"50%"}
+					// data={data.data}
+					tick={true}
+					tickLine={true}
+					axisLine={true}
+					axisLineType="polygon"
+					tickFormatter={tickFormat}
+					type="category"
+					orient="top"
+					 >
+
+					<Label
+					position="center"
 					 />
+					 </PolarAngleAxis>
 				<PolarRadiusAxis 
 					angle={30} 
 					domain={[0, max]}
 					tick={false}
 					axisLine={false} 
+					tickLine={false}
 
 					/>
 				<Radar 
-					// legendType="none"
+					legendType="circle"
 					dataKey="value" 
 					stroke="#ff0101" 
 					fill="#ff0101" 
 					fillOpacity={0.5} />
 				{/* <Radar name="Lily" dataKey="B" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.6} /> */}
 				{/* <Legend /> */}
-				<Tooltip />
+				<Tooltip
+					cursor={false}
+					// wrapperStyle={divStyle}
+					contentStyle={divStyle}
+					// position={{ x: 100, y: 140 }}
+					coordinate={{ x: 80, y: 80 }}
+					payload={data}
+					content={<CustomizedTooltip />}
+				 />
 			</RadarChart>
 			</ResponsiveContainer>
 
