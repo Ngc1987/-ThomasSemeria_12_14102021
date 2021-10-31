@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import "./CircleChart.scss"
 import userPerf from "../../Mocks/user/18.json"
-import {Tooltip, Label, PieChart, Pie, Cell, ResponsiveContainer ,PolarAngleAxis, RadialBarChart , RadialBar,Legend  } from 'recharts';
+import { ResponsiveContainer ,PolarAngleAxis, RadialBarChart , RadialBar,Legend  } from 'recharts';
 
 
 const CustomizedLegend = ({ active, payload, data}) => {
@@ -20,30 +20,15 @@ const CustomizedLegend = ({ active, payload, data}) => {
 	return null;
   };
 
-export default function CircleChart() {
+export default function CircleChart(props) {
 
-	const userDatas = userPerf.data
+	const userDatas = props.data.data
+	// eslint-disable-next-line no-unused-vars
 	const [data, setScore] = useState(userDatas)
-
-
-
+	console.log(props, data)
 
 	let score = [{"name": "score", "value": (data.todayScore * 100)}]
 
-	let scoree = score[0].value
-	console.log(scoree)
-
-	// function scoreDiv(scoree) {
-	// 	// return `${payload[0].value} %`
-	// 	return (
-	// 		<div>
-	// 			<p>{scoree}</p>
-	// 		</div>
-	// 	)
-		
-	// }
-
-	// console.log(data, score)
 	return (
 		<article className="circleChart">
 		<h1 className="score" >Score</h1>

@@ -1,10 +1,7 @@
-import React, {useEffect, useState} from 'react'
+import React, { useState} from 'react'
 import "./RadarChart.scss"
 import radar from "./radar.svg"
-import userPerf from "../../Mocks/user/18/performance.json"
 import {Tooltip, ResponsiveContainer ,Label, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar,Legend  } from 'recharts';
-
-
 
 
 const CustomizedTooltip = ({ active, payload, data}) => {
@@ -20,12 +17,26 @@ const CustomizedTooltip = ({ active, payload, data}) => {
   
 	return null;
   };
+const CustomizedLabel = (props) => {
+
+	console.log(props)
+	
+		return (
+			<div className="custom-tooltip-radar">
+			  {/* <h1 className="desc">{payload[0].value}</h1> */}
+			</div>
+		)
+	
+  
+	return null;
+  };
 
 
-export default function RadarCharts() {
+export default function RadarCharts(props) {
 
-	const userDatas = userPerf.data
-	const [data, setData] = useState(userDatas)
+	const perfDatas = props.data.data
+	// eslint-disable-next-line no-unused-vars
+	const [perfData, setPerfData] = useState(perfDatas)
 
 	const divStyle = {
 		width: 'fit-content',
@@ -34,27 +45,21 @@ export default function RadarCharts() {
 		fontSize: "1.5rem",
 		border: "none"
 	  };
+	//   function tickFormat(props) {
+	// 	  console.log(props)
+	// 		  return perfData.kind[(props)]
+	// 		}
+	  
+	  const max = (perfData.data.map((item) => item.value).sort((a, b) => a < b ? 1 : -1)[0] + 30)
+	  const reorderPerfData = []
+	  perfData.data.forEach((elm) => reorderPerfData.unshift(elm))
 
-	console.log(data)
-
-	const max = (data.data.map((item) => item.value).sort((a, b) => a < b ? 1 : -1)[0] + 30)
+			console.log(perfData)
+	const orderedPerfData = {...perfData, data: reorderPerfData}
+			// console.log(reorderPerfData, perfData.data)
+			// console.log(perfData.data.reverse())
 	
-	function tickFormat(props) {
-		
-		let number = props
-		// console.log(number, props, data.kind[(number)])
-
-
-		// for(let i = 0; i < data.kind.length; i++) {
-		// 	let name = data.kind[i + 1]
-		// 	console.log(name)
-		// 	// return name
-		// }
-
-		return data.kind[(props)]
-	}
-	// console.log(max)
-	
+			console.log(orderedPerfData)
 	return (
 		<article className="radarChart" >
 		<ResponsiveContainer width="100%" height="100%">
@@ -63,18 +68,17 @@ export default function RadarCharts() {
 				outerRadius={90} 
 				width={263} 
 				height={258} 
-				data={data.data}
-				startAngle={30}
-				endAngle={-330}
+				data={orderedPerfData.data}
+				startAngle={90}
+				endAngle={-270}
 				
 				
 				>
-				<PolarGrid
+				{/* <PolarGrid
 				// innerRadius={100}
 				// outerRadius={0}
 				polarRadius={[10, 30, 50, 70, 90]}
-
-				/>
+				/> */}
 				<PolarAngleAxis 
 					dataKey="kind"
 					// radius={"50%"}
@@ -82,8 +86,8 @@ export default function RadarCharts() {
 					tick={true}
 					tickLine={true}
 					axisLine={true}
-					axisLineType="polygon"
-					tickFormatter={tickFormat}
+					
+					// tickFormatter={<CustomizedLabel/>}
 					type="category"
 					orient="top"
 					 >
@@ -98,23 +102,23 @@ export default function RadarCharts() {
 					tick={false}
 					axisLine={false} 
 					tickLine={false}
+					// tickFormatter={}
 
 					/>
 				<Radar 
-					legendType="circle"
+					
 					dataKey="value" 
 					stroke="#ff0101" 
 					fill="#ff0101" 
 					fillOpacity={0.5} />
-				{/* <Radar name="Lily" dataKey="B" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.6} /> */}
-				{/* <Legend /> */}
+					
 				<Tooltip
 					cursor={false}
 					// wrapperStyle={divStyle}
 					contentStyle={divStyle}
 					// position={{ x: 100, y: 140 }}
 					coordinate={{ x: 80, y: 80 }}
-					payload={data}
+					payload={perfData}
 					content={<CustomizedTooltip />}
 				 />
 			</RadarChart>

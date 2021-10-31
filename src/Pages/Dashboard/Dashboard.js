@@ -5,39 +5,39 @@ import LineChart2 from '../../Components/Charts/LineChart/LineChart2'
 import RadarCharts from '../../Components/Charts/RadarChart/RadarChart'
 import CircleChart from '../../Components/Charts/CircleChart/CircleChart'
 import Nutriment from '../../Components/Nutriment/Nutriment'
-import useUserDatas from '../../Hooks/useUserDatas'
 import { getUserDatas } from "../../CallsApis/requests";
-import {useState, useEffect, useMemo } from 'react'
+import {useState, useEffect} from 'react'
 import Loader from "../../Components/Loader/Loader"
 // import { useEffect } from 'react/cjs/react.development'
 
-const userId = window.location.pathname.split("/")[2];
+
+// console.log(userId)
 
 export default function Dashboard() {
-	// const [userDatas, status] = useUserDatas()
 
-	const [userDatas, setUserDatas] = useState([])
+	const [userAllDatas, setUserAllDatas] = useState({})
 	const [loader, setLoader] = useState(true)
-
-	// const url =  getDatas(userId)
-
-	// console.log(url)
+	const userId = window.location.pathname.split("/")[2];
+	
 	useEffect(() => {
 		
 
-		fetch(getUserDatas(userId))
-			.then((response) => {
-				// console.log(response)
-				return response.json()
-			})
+		getUserDatas(userId)
 			.then((result) => {
-				// console.log(result)
-				setUserDatas(result)
+				setUserAllDatas(result)
 				setLoader(false)
 			})
-	}, [])
+		}, [userId])
 
-// console.log(userDatas)
+	// console.log(userDatas)
+
+	let userData = userAllDatas[0]
+	let activityData = userAllDatas[1]
+	let sessionData = userAllDatas[2]
+	let perfData = userAllDatas[3]
+
+	console.log(activityData)
+
 	if(loader) {
 		return (<Loader />)
 	}
@@ -48,8 +48,8 @@ export default function Dashboard() {
 			
 			<section className="dashboard">
 			{/* <p>{userDatas.location.name}</p> */}
-			<h2>Bonjour <em>{userDatas?.data?.userInfos?.firstName ?? "No Name"}</em></h2>
-			{/* <h2>Bonjour <em>{userDatas.data.userInfos.firstName}</em></h2> */}
+			{/* <h2>Bonjour <em>{userDatas?.data?.userInfos?.firstName ?? "No Name"}</em></h2> */}
+			<h2>Bonjour <em>{userData.data.userInfos.firstName}</em></h2>
 			{/* <h2>Bonjour <em>Thomas</em></h2> */}
 						<p className="dashboard-text">Félicitations ! Vous avez explosé vos objectifs hier 👏</p>
 
@@ -57,24 +57,20 @@ export default function Dashboard() {
 			<section className="dashboard__graphs">
 
 				<div className="dashboard__graphs__charts">
-					<BarCharts />
+					<BarCharts data={activityData} />
 
 					<div className="dashboard__graphs__charts-smalls">
-						<LineChart2 />
-						<RadarCharts />
-						<CircleChart />
+						<LineChart2 data={sessionData} />
+						<RadarCharts data={perfData} />
+						<CircleChart data={userData}/>
 					</div>
 				</div>
 				
 				<div className="dashboard__graphs__nutriments">
-					{/* <Nutriment  nutriment="Calories" />
-					<Nutriment  nutriment="Protéines" />
-					<Nutriment  nutriment="Glucides" />
-					<Nutriment  nutriment="Lipides" /> */}
-					<Nutriment quantity={userDatas.data.keyData.calorieCount} nutriment="Calories" /> 
-					<Nutriment quantity={userDatas.data.keyData.proteinCount} nutriment="Protéines" />
-					<Nutriment quantity={userDatas.data.keyData.carbohydrateCount} nutriment="Glucides" />
-					<Nutriment quantity={userDatas.data.keyData.lipidCount} nutriment="Lipides" />
+					<Nutriment quantity={userData.data.keyData.calorieCount} nutriment="Calories" /> 
+					<Nutriment quantity={userData.data.keyData.proteinCount} nutriment="Protéines" />
+					<Nutriment quantity={userData.data.keyData.carbohydrateCount} nutriment="Glucides" />
+					<Nutriment quantity={userData.data.keyData.lipidCount} nutriment="Lipides" />
 				</div> 
 				
 			</section>

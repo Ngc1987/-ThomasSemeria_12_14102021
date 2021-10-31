@@ -1,5 +1,5 @@
-import { LineChart, Line, CartesianGrid, XAxis, YAxis,Tooltip  } from 'recharts';
-import React, {useEffect, useState} from 'react'
+import { LineChart, Line, CartesianGrid, YAxis,Tooltip  } from 'recharts';
+import React, {useState} from 'react'
 import "./LineChart.scss"
 import userAveragSes from "../../Mocks/user/18/average-sessions"
 // import CustomizedToolTip from "./CustomizedToolTip"
@@ -50,20 +50,23 @@ userAveragSes.data.sessions.push({day: 1, sessionLength: 30})
 	return null;
   };
 
-export default function LineChart2() {
+export default function LineChart2(props) {
 
-	const userDatas = userAveragSes.data.sessions
-	const [userData, setUserData] = useState(userDatas)
+	const sessionDatas = props.data.data.sessions
+
+	console.log(props, sessionDatas)
+	// eslint-disable-next-line no-unused-vars
+	const [sessionData, setSessionData] = useState(sessionDatas)
 
 	
-	let data = userData
+	// let data = userData
 
 	
 	// console.log(data, userData)
 
 	return (
 		<div className="lineChart" >
-			<LineChart width={292} height={210} data={data} margin={{ top: 80, right: 16, bottom: 0, left: -16 }}>
+			<LineChart width={292} height={210} data={sessionData} margin={{ top: 80, right: 16, bottom: 0, left: -16 }}>
 				<Line 
 				type="natural" 
 				dataKey="sessionLength" 
@@ -91,7 +94,7 @@ export default function LineChart2() {
 					color: 'black',
 					fontWeight: "bold"
 					}}
-				label={data.sessionLength}
+				label={sessionData.sessionLength}
 				content={<CustomizedToolTip/>}
 				cursor={false}
 				 />

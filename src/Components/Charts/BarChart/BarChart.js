@@ -1,11 +1,10 @@
-import React, {useEffect, useState} from 'react'
+import React, { useState} from 'react'
 import "./BarChart.scss"
 import userActivity from "../../Mocks/user/18/activity"
-import {Tooltip, Rectangle, ResponsiveContainer, BarChart , CartesianGrid, Legend, XAxis, YAxis, Bar} from 'recharts';
+import {Tooltip, ResponsiveContainer, BarChart , CartesianGrid, XAxis, YAxis, Bar} from 'recharts';
 // import userAveragSes2 from "../../Mocks/user/12"
-import * as d3 from "d3";
 
-const CustomizedToolTip = ({ active, payload, label }) => {
+const CustomizedToolTip = ({ active, payload }) => {
 
 	// console.log(label, payload, active)
 	if (active && payload && payload.length) {
@@ -62,13 +61,9 @@ const CustomizedToolTip = ({ active, payload, label }) => {
 
 export default function BarCharts(props) {
 	
-	
-	const userDatas = userActivity.data.sessions
-	const [userData, setUserData] = useState(userDatas)
-
-
-	// console.log(userData)
 	// console.log(props)
+	let activityDatas = props.data.data.sessions
+	const [activityData, setUserData] = useState(activityDatas)
 
 	const formatXAxis = (tickItem, i) => {
 		// tickItem.style.fontSize = "2rem"
@@ -81,7 +76,7 @@ export default function BarCharts(props) {
 			<p className="barChart-title" >Activité quotidienne</p>
 			<ResponsiveContainer >
 
-				<BarChart width={"100%"} height={"40%"} data={userData}
+				<BarChart width={"100%"} height={"40%"} data={activityData}
 				barCategoryGap={"20%"}
 				barGap={8}
 				margin={{top: 120, bottom: 30, right:30}} 
@@ -155,7 +150,7 @@ export default function BarCharts(props) {
 					 yAxisId="cl"
 					  />
 					<Tooltip
-					label={userData}
+					label={activityData}
 					cursor={{fill: "rgba(0,0,0,0.15)"}}
 					content={<CustomizedToolTip/>}
 					offset={35}
@@ -164,7 +159,7 @@ export default function BarCharts(props) {
 					 />
 					{/* <Legend 
 					iconType="circle" 
-					label={userData}
+					label={activityData}
 					// content={<CustomizedLegend/>}
 					// iconSize={10} 
 					// align="right" 
@@ -190,7 +185,7 @@ export default function BarCharts(props) {
 	// 	draw()
 	// }, [])
 
-	// // console.log(userData)
+	// // console.log(activityData)
 	// function draw() {
 	// 	let container = d3.select(".barChart")
 	// 	let margin = {top: 20, right: 20, bottom: 10, left: 20};
@@ -205,25 +200,25 @@ export default function BarCharts(props) {
 	// 						.append("g")
 	// 						.attr("transform", `translate(${margin.left},${margin.top})`);
 
-	// 	let dates = userData.map((item, index) => index + 1)
+	// 	let dates = activityData.map((item, index) => index + 1)
 
 	// 	let xScale0 = d3.scaleBand()
 	// 					.range([0, width - margin.left - margin.right])
 	// 					.padding(barPadding)
-	// 					.domain(userData.map((d, i) => d.day))
+	// 					.domain(activityData.map((d, i) => d.day))
 
 	// 	let xScale1 = d3.scaleBand()
 	// 					.domain(['kilogram', 'calories']).range([0, xScale0.bandwidth()]);
 
 	// 	let yScale = d3.scaleLinear()
 	// 					.range([height - margin.top - margin.bottom, 0])
-	// 					.domain([d3.min(userData, d => d.kilogram), d3.max(userData, d => d.kilogram)]);
+	// 					.domain([d3.min(activityData, d => d.kilogram), d3.max(activityData, d => d.kilogram)]);
 							
 	// 	let xAxis = d3.axisBottom(xScale0).tickSizeOuter(axisTicks.outerSize);
 	// 	let yAxis = d3.axisLeft(yScale).ticks(axisTicks.qty);
 		
 	// 	let dayName = svg.selectAll(".day")
-	// 	.data(userData)
+	// 	.data(activityData)
 	// 	.enter().append("g")
 	// 	.attr("class", "day")
 	// 	.attr("transform", d => `translate(${xScale0(d.day)},0)`);
@@ -266,9 +261,9 @@ export default function BarCharts(props) {
 	// 				// console.log(xScale0(2))
 			
 			
-	// 				// xScale0.domain(userData.map((d, i) => d.day))
+	// 				// xScale0.domain(activityData.map((d, i) => d.day))
 	// 				// xScale1.domain(['kilogram', 'calories']).range([0, xScale0.bandwidth()]);
-	// 				// yScale.domain([0, d3.max(userData, d => d.kilogram > d.calories ? d.kilogram : d.calories)]);
+	// 				// yScale.domain([0, d3.max(activityData, d => d.kilogram > d.calories ? d.kilogram : d.calories)]);
 	// 				// console.log(xScale0)
 	// }
 
