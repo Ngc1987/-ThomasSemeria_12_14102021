@@ -2,6 +2,8 @@ import React, { useState} from 'react'
 import "./RadarChart.scss"
 import radar from "./radar.svg"
 import {Tooltip, ResponsiveContainer ,Label, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar,Legend  } from 'recharts';
+import PropTypes from 'prop-types'
+
 
 
 const CustomizedTooltip = ({ active, payload, data}) => {
@@ -19,7 +21,7 @@ const CustomizedTooltip = ({ active, payload, data}) => {
   };
 const CustomizedLabel = (props) => {
 
-	console.log(props)
+	// console.log(props)
 	
 		return (
 			<div className="custom-tooltip-radar">
@@ -241,4 +243,7 @@ export default function RadarCharts(props) {
 	// 		// 	.text(function(d, i) {return d.kind})
 	// 		// );
 	// 	}
+}
+RadarCharts.propTypes = {
+	data: PropTypes.object.isRequired,
 }

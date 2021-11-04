@@ -4,9 +4,10 @@ import apple from "../../assets/apple.svg"
 import burger from "../../assets/burger.svg"
 import chicken from "../../assets/chicken.svg"
 import fire from "../../assets/fire.svg"
+import PropTypes from 'prop-types'
 
 export default function Nutriment(props) {
-	// console.log(props.logo)
+	// console.log(props)
 	return (
 		<article className="nutriment" >
 		<div className={props.nutriment === "Calories" ? "nutriment__pic red" :
@@ -29,4 +30,9 @@ export default function Nutriment(props) {
 			</div>
 		</article>
 	)
+}
+
+Nutriment.propTypes = {
+	quantity: PropTypes.number.isRequired,
+	nutriment: PropTypes.string.isRequired
 }

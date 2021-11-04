@@ -4,6 +4,8 @@ import "./LineChart.scss"
 import userAveragSes from "../../Mocks/user/18/average-sessions"
 // import userAveragSes2 from "../../Mocks/user/12"
 import * as d3 from "d3";
+import PropTypes from 'prop-types'
+
 
 
 // console.log(userAveragSes2)
@@ -114,4 +116,10 @@ export default function LineChart() {
 			</div>
 		</div>
 	)
+}
+
+
+
+LineChart.propTypes = {
+	data: PropTypes.object.isRequired,
 }

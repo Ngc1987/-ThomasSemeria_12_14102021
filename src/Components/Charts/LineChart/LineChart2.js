@@ -1,41 +1,14 @@
-import { LineChart, Line, CartesianGrid, YAxis,Tooltip  } from 'recharts';
+import { LineChart, Line, CartesianGrid, YAxis, XAxis, Tooltip  } from 'recharts';
 import React, {useState} from 'react'
 import "./LineChart.scss"
 import userAveragSes from "../../Mocks/user/18/average-sessions"
-// import CustomizedToolTip from "./CustomizedToolTip"
+import PropTypes from 'prop-types'
 
-// const data = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400},
-// {name: 'Page B', uv: 500, pv: 2300, amt: 2000},
-// {name: 'Page C', uv: 300, pv: 1500, amt: 3000},
-// ];
 
 userAveragSes.data.sessions.push({day: 1, sessionLength: 30})
-	userAveragSes.data.sessions.unshift({day: 1, sessionLength: 30})
+userAveragSes.data.sessions.unshift({day: 1, sessionLength: 30})
 
 
-	
-// const getIntroOfPage = (label) => {
-// 	if (label === 'Page A') {
-// 	  return "Page A is about men's clothing";
-// 	}
-// 	if (label === 'Page B') {
-// 	  return "Page B is about women's dress";
-// 	}
-// 	if (label === 'Page C') {
-// 	  return "Page C is about women's bag";
-// 	}
-// 	if (label === 'Page D') {
-// 	  return 'Page D is about household goods';
-// 	}
-// 	if (label === 'Page E') {
-// 	  return 'Page E is about food';
-// 	}
-// 	if (label === 'Page F') {
-// 	  return 'Page F is about baby food';
-// 	}
-// 	return '';
-//   };
-  
   const CustomizedToolTip = ({ active, payload, label }) => {
 
 	// console.log(label, payload, active)
@@ -54,13 +27,15 @@ export default function LineChart2(props) {
 
 	const sessionDatas = props.data.data.sessions
 
-	console.log(props, sessionDatas)
+	// console.log(props, sessionDatas)
 	// eslint-disable-next-line no-unused-vars
 	const [sessionData, setSessionData] = useState(sessionDatas)
 
 	
 	// let data = userData
 
+	sessionData.push({day: 1, sessionLength: 30})
+	sessionData.unshift({day: 1, sessionLength: 30})
 	
 	// console.log(data, userData)
 
@@ -81,7 +56,7 @@ export default function LineChart2(props) {
 				
 				/>
 				<CartesianGrid stroke="#ccc" strokeDasharray="3 3"  horizontal="" vertical=""  />
-				{/* <XAxis dataKey="day" padding={{ left: 30, right: 30 }} /> */}
+				<XAxis dataKey="day" padding={{ left: -30, right: -30 }} hide={true} />
 				<YAxis 
 				hide={true}
 				padding={{ bottom: 25 }}
@@ -116,3 +91,6 @@ export default function LineChart2(props) {
 	)
 }
 
+LineChart2.propTypes = {
+	data: PropTypes.object.isRequired,
+}

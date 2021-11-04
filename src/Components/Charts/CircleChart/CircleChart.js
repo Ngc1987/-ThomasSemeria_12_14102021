@@ -2,7 +2,15 @@ import React, {useState} from 'react'
 import "./CircleChart.scss"
 import userPerf from "../../Mocks/user/18.json"
 import { ResponsiveContainer ,PolarAngleAxis, RadialBarChart , RadialBar,Legend  } from 'recharts';
+import PropTypes from 'prop-types'
 
+/**
+ * @param  {} {active
+ * @param  {} payload
+ * @param  {} data}
+ * @param  {} =>{if(payload&&payload.length
+ * @param  {} {return(<divclassName="custom-legend"><h1className="desc">{payload[0].value+"%"}</h1><p>devotre</p><p>objectif</p></div>
+ */
 
 const CustomizedLegend = ({ active, payload, data}) => {
 
@@ -25,7 +33,7 @@ export default function CircleChart(props) {
 	const userDatas = props.data.data
 	// eslint-disable-next-line no-unused-vars
 	const [data, setScore] = useState(userDatas)
-	console.log(props, data)
+	// console.log(props, data)
 
 	let score = [{"name": "score", "value": (data.todayScore * 100)}]
 
@@ -36,25 +44,7 @@ export default function CircleChart(props) {
 
 
 		<ResponsiveContainer>
-
-		{/* <PieChart width={160} height={160}>
-          <Pie
-            data={score}
-            dataKey="value"
-            innerRadius={70}
-            outerRadius={80}
-            startAngle={90}
-            endAngle={450}
-          >
-            {score.map((entry, index) => (
-              <Cell
-                key={`cell-${index}`}
-                fill={"red"}
-                cornerRadius="50%"
-              />
-            ))}
-          </Pie>
-        </PieChart> */}
+		
 			<RadialBarChart 
 				width={"100%"} 
 				height={"100%"} 
@@ -106,4 +96,9 @@ export default function CircleChart(props) {
 			</ResponsiveContainer>
 		</article>
 	)
+}
+
+
+CircleChart.propTypes = {
+	data: PropTypes.object.isRequired,
 }

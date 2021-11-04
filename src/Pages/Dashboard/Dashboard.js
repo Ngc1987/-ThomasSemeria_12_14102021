@@ -29,14 +29,14 @@ export default function Dashboard() {
 			})
 		}, [userId])
 
-	// console.log(userDatas)
+	console.log(userAllDatas)
 
 	let userData = userAllDatas[0]
 	let activityData = userAllDatas[1]
 	let sessionData = userAllDatas[2]
 	let perfData = userAllDatas[3]
 
-	console.log(activityData)
+	// console.log(activityData)
 
 	if(loader) {
 		return (<Loader />)
