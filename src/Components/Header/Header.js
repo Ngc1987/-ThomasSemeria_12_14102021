@@ -1,7 +1,8 @@
 import React from 'react'
-import headerLogo from "../../assets/headerLogo.svg"
 import {Link} from "react-router-dom"
 import "./Header.scss"
+
+let headerLogo = process.env.PUBLIC_URL + "/assets/headerLogo.svg"
 
 export default function Header() {
 	return (

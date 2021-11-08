@@ -1,11 +1,11 @@
 import React from 'react'
 import "./NavIcon.scss"
-import bike from "../../assets/bike.svg"
-import dumbbell from "../../assets/dumbbell.svg"
-import yoga from "../../assets/yoga.svg"
-import swim from "../../assets/swim.svg"
 import PropTypes from 'prop-types'
 
+let bike = process.env.PUBLIC_URL + "/assets/bike.svg"
+let dumbbell = process.env.PUBLIC_URL + "/assets/dumbbell.svg"
+let yoga = process.env.PUBLIC_URL + "/assets/yoga.svg"
+let swim = process.env.PUBLIC_URL + "/assets/swim.svg"
 
 export default function NavIcon(props) {
 	// console.log(props)

@@ -1,10 +1,11 @@
 import React from 'react'
 import "./Nutriment.scss"
-import apple from "../../assets/apple.svg"
-import burger from "../../assets/burger.svg"
-import chicken from "../../assets/chicken.svg"
-import fire from "../../assets/fire.svg"
 import PropTypes from 'prop-types'
+
+let apple = process.env.PUBLIC_URL + "/assets/apple.svg"
+let burger = process.env.PUBLIC_URL + "/assets/burger.svg"
+let chicken = process.env.PUBLIC_URL + "/assets/chicken.svg"
+let fire = process.env.PUBLIC_URL + "/assets/fire.svg"
 
 export default function Nutriment(props) {
 	// console.log(props)

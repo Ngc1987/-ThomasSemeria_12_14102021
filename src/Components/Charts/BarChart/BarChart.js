@@ -37,7 +37,9 @@ export default function BarCharts(props) {
 			<p className="barChart-title" >Activité quotidienne</p>
 			<ResponsiveContainer >
 
-				<BarChart width={"100%"} height={"40%"} data={activityData}
+				<BarChart width={"100%"} 
+				height={"40%"} 
+				data={activityData}
 				barCategoryGap={"20%"}
 				barGap={8}
 				margin={{top: 120, bottom: 30, right:30}} 
