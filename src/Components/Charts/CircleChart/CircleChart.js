@@ -4,13 +4,6 @@ import userPerf from "../../Mocks/user/18.json"
 import { ResponsiveContainer ,PolarAngleAxis, RadialBarChart , RadialBar,Legend  } from 'recharts';
 import PropTypes from 'prop-types'
 
-/**
- * @param  {} {active
- * @param  {} payload
- * @param  {} data}
- * @param  {} =>{if(payload&&payload.length
- * @param  {} {return(<divclassName="custom-legend"><h1className="desc">{payload[0].value+"%"}</h1><p>devotre</p><p>objectif</p></div>
- */
 
 const CustomizedLegend = ({ active, payload, data}) => {
 
@@ -30,7 +23,7 @@ const CustomizedLegend = ({ active, payload, data}) => {
 
 export default function CircleChart(props) {
 
-	const userDatas = props.data.data
+	const userDatas = props.data
 	// eslint-disable-next-line no-unused-vars
 	const [data, setScore] = useState(userDatas)
 	// console.log(props, data)

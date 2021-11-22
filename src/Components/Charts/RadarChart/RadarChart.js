@@ -36,7 +36,7 @@ const CustomizedLabel = (props) => {
 
 export default function RadarCharts(props) {
 
-	const perfDatas = props.data.data
+	const perfDatas = props.data
 	// eslint-disable-next-line no-unused-vars
 	const [perfData, setPerfData] = useState(perfDatas)
 

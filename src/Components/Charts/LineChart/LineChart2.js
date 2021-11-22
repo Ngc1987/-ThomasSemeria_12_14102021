@@ -25,7 +25,7 @@ userAveragSes.data.sessions.unshift({day: 1, sessionLength: 30})
 
 export default function LineChart2(props) {
 
-	const sessionDatas = props.data.data.sessions
+	const sessionDatas = props.data.sessions
 
 	// console.log(props, sessionDatas)
 	// eslint-disable-next-line no-unused-vars

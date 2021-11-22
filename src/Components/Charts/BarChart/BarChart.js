@@ -23,7 +23,7 @@ const CustomizedToolTip = ({ active, payload }) => {
 export default function BarCharts(props) {
 	
 	console.log(props)
-	let activityDatas = props.data.data.sessions
+	let activityDatas = props.data.sessions
 	const [activityData, setUserData] = useState(activityDatas)
 
 	const formatXAxis = (tickItem, i) => {
