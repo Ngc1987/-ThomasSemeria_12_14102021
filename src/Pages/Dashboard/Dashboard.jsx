@@ -23,8 +23,8 @@ import User from "../../Models/User"
 export default function Dashboard() {
 
 	const [user, setUserAllDatas] = useState({})
-	const [loader, setLoader] = useState(true)
-	const [error, setError] = useState(false)
+	const [isLoaded, setIsLoaded] = useState(false)
+	const [error, setError] = useState(null)
 	// User Id, taking from the url
 	const userId = window.location.pathname.split("/")[2];
 	
@@ -33,16 +33,21 @@ export default function Dashboard() {
 			.then((result) => {
 				let user = new User(result[0], result[1], result[2], result[3])
 				setUserAllDatas(user)
-				setLoader(false)
+				setIsLoaded(true)
 			})
-			.catch(err => setError(err))
+			.catch(err => {
+				setError(true)
+				setIsLoaded(true)
+			})
 		}, [userId])
 
-	if(loader) {
-		return (<Loader />)
-	}
 	if(error) {
-		return (<Error />)
+		return (
+		<Error type="fetchError"/>
+		)
+	}
+	if(!isLoaded) {
+		return (<Loader />)
 	}
 
 	return (

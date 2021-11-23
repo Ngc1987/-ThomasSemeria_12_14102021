@@ -19,7 +19,7 @@ function App() {
                   <Switch>
                       <Route path="/" exact component={Home} />
                       <Route path="/user" component={Dashboard} />
-                      <Route path="/*" component={Error} />
+                      <Route path="*" component={Error} />
                   </Switch>
               </main>
           </Router>

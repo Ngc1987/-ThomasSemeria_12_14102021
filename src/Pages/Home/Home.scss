@@ -1,3 +1,5 @@
+@import "../../Sass/_variables.scss";
+
 .home {
 	margin-top: 141px;
 	margin-left: 100px;
@@ -12,7 +14,7 @@
 	}
 
 	em {
-		color: #f60000;
+		color: $primary;
 		font-style: normal;
 	}
 	.descript {
@@ -43,7 +45,7 @@
 			transition: all 0.4s ease;
 	
 			&:hover  {
-				box-shadow: 0 0 6px #f60000;
+				box-shadow: 0 0 6px $primary;
 			}
 		}
 		.btn-user18 button{
@@ -56,7 +58,7 @@
 			transition: all 0.4s ease;
 	
 			&:hover  {
-				box-shadow: 0 0 6px #f60000;
+				box-shadow: 0 0 6px $primary;
 			}
 		}
 	}

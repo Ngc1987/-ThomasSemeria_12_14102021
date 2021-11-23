@@ -1,3 +1,5 @@
+@import "../../../Sass/_variables.scss";
+
 .barChart {
 	width: 100%;
 	height: 320px;
@@ -41,7 +43,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		background-color: #E60000;
+		background-color: $primary;
 		color: #fff;
 
 		.desc {
@@ -98,7 +100,7 @@
 				width: 8px;
 				height: 8px;
 				border-radius: 50%;
-				background-color: #E60000;
+				background-color: $primary;
 			}
 		}
 	}
@@ -115,7 +117,7 @@
 	.custom-cursor {
 		width: 60%;
 		height: 100%;
-		background-color: red;
+		background-color: $primary;
 
 		h1 {
 			padding: 40px;
@@ -125,7 +127,7 @@
 	.recharts-tooltip-cursor {
 		width: 50px !important;
 		height: 100%;
-		background-color: red;
+		background-color: $primary;
 
 		h1 {
 			padding: 40px;
@@ -142,5 +144,5 @@ svg {
 }
 
 .tick {
-	fill: red;
+	fill: $primary;
 }
