@@ -1,6 +1,11 @@
 import React from 'react'
 import "./Loader.scss"
 
+
+/**
+ * @component
+ * Component Loader who appears when the datas are not fetched yet
+ */
 export default function Loader() {
 	return (
 		<div className="diamonds">

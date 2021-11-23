@@ -2,6 +2,11 @@ import React from 'react'
 import "./Home.scss"
 import {Link} from "react-router-dom"
 
+
+/**
+ * @description
+ * Component who appears for the developement, we can choose between two users to simulate the app
+ * */
 export default function Home() {
 	return (
 		<div className="home">

@@ -1,13 +1,15 @@
 import React, { useState} from 'react'
-import "./BarChart.scss"
-import userActivity from "../../Mocks/user/18/activity"
+import "./ActivityChart.scss"
 import PropTypes from 'prop-types'
 import {Tooltip, ResponsiveContainer, BarChart , CartesianGrid, XAxis, YAxis, Bar} from 'recharts';
-// import userAveragSes2 from "../../Mocks/user/12"
 
+/**
+ * Format the box who appears on hover on the Bar Chart
+ * @param  {} active true if the box appears
+ * @param  {} payload datas we need to take to show informations on the tooltip
+ */
 const CustomizedToolTip = ({ active, payload }) => {
 
-	// console.log(label, payload, active)
 	if (active && payload && payload.length) {
 		return (
 			<div className="custom-tooltip-line">
@@ -16,25 +18,33 @@ const CustomizedToolTip = ({ active, payload }) => {
 			</div>
 		)
 	}
-  
 	return null;
-  };
+};
 
-export default function BarCharts(props) {
+
+/**
+ * @component
+ * @param  {object} props Activities datas of the user
+ * @returns Component who show evolution on a few days of the weight and the used calories of the user, on a bar chart
+ */
+export default function ActivityChart(props) {
 	
-	console.log(props)
+	// Take the datas we need on the props
 	let activityDatas = props.data.sessions
+	// eslint-disable-next-line no-unused-vars
 	const [activityData, setUserData] = useState(activityDatas)
 
+	// Format the information we need to show on the bottom for each chart
 	const formatXAxis = (tickItem, i) => {
-		// tickItem.style.fontSize = "2rem"
 		return i + 1
-	  }
+	}
 	
 	return (
+
 		<article className="barChart" >
 
 			<p className="barChart-title" >Activité quotidienne</p>
+
 			<ResponsiveContainer >
 
 				<BarChart width={"100%"} 
@@ -43,30 +53,22 @@ export default function BarCharts(props) {
 				barCategoryGap={"20%"}
 				barGap={8}
 				margin={{top: 120, bottom: 30, right:30}} 
-				// maxBarSize={7}
 				>
 
 					<CartesianGrid 
 					strokeDasharray="3 3" 
-					vertical={false}/>
+					vertical={false}
+					/>
 
 					<XAxis 
-					// dataKey="day"
 					axisLine={false}
 					tickLine={false}
 					domain={['dataMin', 'dataMax']}
-					// padding={{left: -30, right: -30}}
-					// label="number"
 					tickMargin={25}
 					tick={{stroke: '#9B9EAC'}}
-					
-					
-					// tickSize={8}
 					tickFormatter={formatXAxis}
-					// label={{ "font-size": "2rem" }}
-					// scale="log"
-					// type="number"
-					 />
+					/>
+
 					<YAxis 
 					orientation="right" 
 					tickCount={3}
@@ -75,23 +77,19 @@ export default function BarCharts(props) {
 					axisLine={false}
 					tickLine={false}
 					tickMargin={30}
-					
 					tick={{stroke: '#9B9EAC'}}
-					// margin={{top: 30}}
-					// yAxisId="kg"
-					 />
+					/>
+
 					<YAxis 
-					// orientation="right" 
 					tickCount={6}
 					domain={[0, 600]}
 					dataKey="calories"
 					axisLine={false}
 					tickLine={false}
 					tick={false}
-					// tickMargin="50"
 					hide={true}
 					yAxisId="cl"
-					 />
+					/>
 
 					<Bar 
 					stackId="kg" 
@@ -100,9 +98,8 @@ export default function BarCharts(props) {
 					label={false} 
 					fill="#282D30" 
 					radius={[25, 25, 0, 0]}
-					// yAxisId="kg" 
-
 					/>
+
 					<Bar 
 					stackId="cl" 
 					barSize={8} 
@@ -110,43 +107,39 @@ export default function BarCharts(props) {
 					label={false} 
 					fill="#E60000"
 					radius={[25, 25, 0, 0]}
-					 yAxisId="cl"
-					  />
+					yAxisId="cl"
+					/>
+
 					<Tooltip
 					label={activityData}
 					cursor={{fill: "rgba(0,0,0,0.15)"}}
 					content={<CustomizedToolTip/>}
 					offset={35}
-					//  viewBox={{x: 50, y: 50, width: 50, height: 400}} 
-
-					 />
-					{/* <Legend 
-					iconType="circle" 
-					label={activityData}
-					// content={<CustomizedLegend/>}
-					// iconSize={10} 
-					// align="right" 
-					// verticalAlign="top" 
-
-					/> */}
+					/>
+					
 				</BarChart>
+
 			</ResponsiveContainer>
+
 			<div className="custom-tooltip-legend">
+
 				<div className="kilogram">
 					<div className="blackRound"></div>
 					<p className="desc">Poids (kg)</p>
 				</div>
 
 				<div className="calories">
-				<div className="redRound"></div>
+					<div className="redRound"></div>
 					<p className="desc">Calories brûlées (kCal)</p>
 				</div>
+
 			</div>
+
 		</article>
 	)
 }
 
 
-BarCharts.propTypes = {
+ActivityChart.propTypes = {
 	data: PropTypes.object.isRequired,
 }

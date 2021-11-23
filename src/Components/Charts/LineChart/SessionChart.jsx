@@ -1,17 +1,16 @@
 import { LineChart, Line, CartesianGrid, YAxis, XAxis, Tooltip  } from 'recharts';
 import React, {useState} from 'react'
-import "./LineChart.scss"
-import userAveragSes from "../../Mocks/user/18/average-sessions"
+import "./SessionChart.scss"
 import PropTypes from 'prop-types'
 
+/**
+ * Format the box who appears on hover on the Bar Chart
+ * @param  {} active true if the box appears
+ * @param  {} payload datas we need to take to show informations on the tooltip
+ * 
+ */
+const CustomizedToolTip = ({ active, payload }) => {
 
-userAveragSes.data.sessions.push({day: 1, sessionLength: 30})
-userAveragSes.data.sessions.unshift({day: 1, sessionLength: 30})
-
-
-  const CustomizedToolTip = ({ active, payload, label }) => {
-
-	// console.log(label, payload, active)
 	if (active && payload && payload.length) {
 	  return (
 		<div className="custom-tooltip">
@@ -21,27 +20,38 @@ userAveragSes.data.sessions.unshift({day: 1, sessionLength: 30})
 	}
   
 	return null;
-  };
+};
 
-export default function LineChart2(props) {
 
+
+/**
+ * @component
+ * @param  {object} props Sessions datas of the user
+ * @returns Component who show evolution of the session length for each day of the week on a line chart
+ */
+export default function SessionChart(props) {
+
+	// Take the datas we need on the props
 	const sessionDatas = props.data.sessions
-
-	// console.log(props, sessionDatas)
 	// eslint-disable-next-line no-unused-vars
 	const [sessionData, setSessionData] = useState(sessionDatas)
 
-	
-	// let data = userData
-
+	// To have an effect who show the line length from start to end of the div, i put another day
+	// on the start and the end of my days datas. The line start before the first day and ending after 
+	// the last day on the chart
 	sessionData.push({day: 1, sessionLength: 30})
 	sessionData.unshift({day: 1, sessionLength: 30})
-	
-	// console.log(data, userData)
 
 	return (
+
 		<div className="lineChart" >
-			<LineChart width={292} height={210} data={sessionData} margin={{ top: 80, right: 16, bottom: 0, left: -16 }}>
+			
+			<LineChart 
+			width={292} 
+			height={210} 
+			data={sessionData} 
+			margin={{ top: 80, right: 16, bottom: 0, left: -16 }}
+			>
 				<Line 
 				type="natural" 
 				dataKey="sessionLength" 
@@ -52,17 +62,27 @@ export default function LineChart2(props) {
 				strokeWidth={3}
 				legendType="line"
 				activeDot={{ stroke: '#ffffff6e', strokeWidth: 1}}
-				// offset={false}
-				
 				/>
-				<CartesianGrid stroke="#ccc" strokeDasharray="3 3"  horizontal="" vertical=""  />
-				<XAxis dataKey="day" padding={{ left: -30, right: -30 }} hide={true} />
+
+				<CartesianGrid 
+				stroke="#ccc" 
+				strokeDasharray="3 3"  
+				horizontal="" 
+				vertical="" 
+				/>
+
+				<XAxis 
+				dataKey="day" 
+				padding={{ left: -30, right: -30 }} 
+				hide={true} 
+				/>
+				
 				<YAxis 
 				hide={true}
 				padding={{ bottom: 25 }}
-				// type="number" 
 				domain={['dataMin', 'dataMax']}
-				 />
+				/>
+
 				<Tooltip
 				separator=""	
 				itemStyle={{
@@ -72,7 +92,7 @@ export default function LineChart2(props) {
 				label={sessionData.sessionLength}
 				content={<CustomizedToolTip/>}
 				cursor={false}
-				 />
+				/>
 
 			</LineChart>
 
@@ -87,10 +107,11 @@ export default function LineChart2(props) {
 				<p>S</p>
 				<p>D</p>
 			</div>
+
 		</div>
 	)
 }
 
-LineChart2.propTypes = {
+SessionChart.propTypes = {
 	data: PropTypes.object.isRequired,
 }

@@ -1,23 +1,18 @@
 import React, {useEffect, useState} from 'react'
-import ReactDOM from "react-dom";
 import "./LineChart.scss"
 import userAveragSes from "../../Mocks/user/18/average-sessions"
-// import userAveragSes2 from "../../Mocks/user/12"
 import * as d3 from "d3";
 import PropTypes from 'prop-types'
 
-
-
-// console.log(userAveragSes2)
-
-export default function LineChart() {
-
+export default function LineChartD3() {
 
 	const userDatas = userAveragSes.data.sessions
+	// eslint-disable-next-line no-unused-vars
 	const [userData, setUserData] = useState(userDatas)
 	
 	useEffect(() => {
 		draw()
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
 	function draw() {
@@ -37,9 +32,11 @@ export default function LineChart() {
 			.attr("transform", "translate(" + margin.left +", " + margin.top + ")")
 
 		// Création des groupes X et Y
+		// eslint-disable-next-line no-unused-vars
 		const groupeX = svg.append("g")
 							.attr("transform", `translate(${margin.left}, ${height})`)
 
+		// eslint-disable-next-line no-unused-vars
 		const groupeY = svg.append("g")
 							.attr("transform", `translate(20, 0)`)
 
@@ -120,6 +117,6 @@ export default function LineChart() {
 
 
 
-LineChart.propTypes = {
+LineChartD3.propTypes = {
 	data: PropTypes.object.isRequired,
 }

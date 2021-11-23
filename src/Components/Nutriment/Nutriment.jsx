@@ -3,7 +3,7 @@ import "./Nutriment.scss"
 import PropTypes from 'prop-types'
 import icons from '../../Helpers/icons'
 
-
+// Object who contains the class names for the different nutriments
 const iconClassName = {
 	"Calories": "nutriment__pic red",
 	"Glucides": "nutriment__pic yellow",
@@ -11,6 +11,10 @@ const iconClassName = {
 	"Lipides": "nutriment__pic pink"
 }
 
+/**
+ * @component
+ * Component Nutriment who render the informations of the user for each nutriment
+ */
 export default function Nutriment(props) {
 	// console.log(props)
 	return (

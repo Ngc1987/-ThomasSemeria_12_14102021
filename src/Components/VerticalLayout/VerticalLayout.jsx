@@ -2,6 +2,12 @@ import React from 'react'
 import "./VerticalLayout.scss"
 import NavIcon from '../NavIcon/NavIcon'
 
+
+// 
+/**
+ * @component
+ * Component Vertical Layout who appears on the left of the app for all pages and contains the NavIcons
+ */
 export default function VerticalLayout() {
 	return (
 		<div className="verticalLayout">
