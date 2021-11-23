@@ -7,7 +7,7 @@
 
 🏃 The SportSee app measures your performance and fitness indicators. You can easily track your physical activity 🏃
 
-![ScreenShot](https://github.com/Ngc1987/-ThomasSemeria_12_14102021/public/assets/maquette.png)
+![ScreenShot](https://github.com/Ngc1987/-ThomasSemeria_12_14102021/tree/master/public/assets/maquette.png)
 Mockup of the project
 
 ## 1. Author
