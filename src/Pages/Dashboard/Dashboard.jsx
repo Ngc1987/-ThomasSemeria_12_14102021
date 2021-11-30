@@ -14,13 +14,11 @@ import User from "../../Models/User"
 
 
 /** 
- * @description 
- * This is component for Dashboard page
- * - It handles 3 states (user => datas of the user, loader => if true, Loader component is rendered, 
+ * @description This is component for Dashboard page, i, pour les compot handles 3 states (user => datas of the user, loader => if true, Loader component is rendered, 
  *   error => if true, Error component is rendered)
  * @returns If loader and error are false, the Dashboard is rendered, with first name, nutriments and some charts with fetched informations of the user
  */
-export default function Dashboard() {
+function Dashboard() {
 
 	const [user, setUserAllDatas] = useState({})
 	const [isLoaded, setIsLoaded] = useState(false)
@@ -84,3 +82,6 @@ export default function Dashboard() {
 		</>
 	)
 }
+
+
+export default Dashboard;

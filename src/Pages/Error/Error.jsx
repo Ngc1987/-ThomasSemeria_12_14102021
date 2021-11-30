@@ -3,10 +3,9 @@ import "./Error.scss"
 import {Link} from "react-router-dom"
 
 /**
- * @component
- * Component Error who appears when the datas are fetched but an error is occured
+ * @component Component Error who appears when the datas are fetched but an error is occured
  */
-export default function Error(props) {
+function Error(props) {
 	return (
 		<section className="error404">
 
@@ -34,3 +33,6 @@ export default function Error(props) {
 			</section>
 	)
 }
+
+
+export default Error;

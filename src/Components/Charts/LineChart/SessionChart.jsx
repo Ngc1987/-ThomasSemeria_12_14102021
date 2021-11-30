@@ -4,7 +4,7 @@ import "./SessionChart.scss"
 import PropTypes from 'prop-types'
 
 /**
- * Format the box who appears on hover on the Bar Chart
+ * Format the box who appears on hover on the Line Session Chart
  * @param  {} active true if the box appears
  * @param  {} payload datas we need to take to show informations on the tooltip
  * 
