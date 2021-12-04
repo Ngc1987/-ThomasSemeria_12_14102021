@@ -1,5 +1,5 @@
 import { LineChart, Line, CartesianGrid, YAxis, XAxis, Tooltip  } from 'recharts';
-import React, {useState} from 'react'
+import React, {useState, useRef, useEffect} from 'react'
 import "./SessionChart.scss"
 import PropTypes from 'prop-types'
 
@@ -35,6 +35,7 @@ export default function SessionChart(props) {
 	const sessionDatas = props.data.sessions
 	// eslint-disable-next-line no-unused-vars
 	const [sessionData, setSessionData] = useState(sessionDatas)
+	// const [divHover, setDivHover] = useState()
 
 	// To have an effect who show the line length from start to end of the div, i put another day
 	// on the start and the end of my days datas. The line start before the first day and ending after 
@@ -42,9 +43,24 @@ export default function SessionChart(props) {
 	sessionData.push({day: 1, sessionLength: 30})
 	sessionData.unshift({day: 1, sessionLength: 30})
 
+	const hoverDiv = useRef();
+	
+	// useEffect(() => {
+	// 	const refHoverDif = hoverDiv.current;
+	// 	setDivHover(refHoverDif)
+	// 	console.log(refHoverDif)
+	// })
+
+	// const dynamicBackground = (e) => {
+	// 	console.log(e);
+	// 	// divHover.style.width = `${300 - e.nativeEvent.layerX}px`
+	// }
+
 	return (
 
-		<div className="lineChart" >
+		<div className="lineChart" 
+		// onMouseMove={dynamicBackground} 
+		>
 			
 			<LineChart 
 			width={292} 
@@ -107,7 +123,7 @@ export default function SessionChart(props) {
 				<p>S</p>
 				<p>D</p>
 			</div>
-
+			<div ref={hoverDiv} className="lineChart-hoverDiv"></div>
 		</div>
 	)
 }
