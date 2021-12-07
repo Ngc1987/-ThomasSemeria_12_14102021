@@ -1,8 +1,8 @@
-import React, { useState} from 'react'
-import "./PerformancesChart.scss"
-import radar from "./radar.svg"
+import React, { useState} from 'react';
+import "./PerformancesChart.scss";
+import radar from "./radar.svg";
 import {Tooltip, ResponsiveContainer ,Label, RadarChart, PolarAngleAxis, PolarRadiusAxis, Radar} from 'recharts';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 /**
  * Format the box who appears on center on the Circle Chart
@@ -24,10 +24,11 @@ const CustomizedTooltip = ({payload}) => {
 
 /**
  * @component
+ * @memberOf Dashboard
+ * @description Component who show the score for each category for the user on a radar chart
  * @param  {object} props Performances datas of the user
- * @returns Component who show the score for each category for the user on a radar chart
  */
-export default function PerformancesChart(props) {
+function PerformancesChart(props) {
 
 	// Take the datas we need on the props
 	const perfDatas = props.data
@@ -109,5 +110,10 @@ export default function PerformancesChart(props) {
 }
 
 PerformancesChart.propTypes = {
+	/**
+	 * User's datas, the score for each category
+	 */
 	data: PropTypes.object.isRequired,
 }
+
+export default PerformancesChart;

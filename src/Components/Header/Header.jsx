@@ -1,14 +1,14 @@
-import React from 'react'
-import {Link} from "react-router-dom"
-import "./Header.scss"
+import React from 'react';
+import {Link} from "react-router-dom";
+import "./Header.scss";
 
-let headerLogo = process.env.PUBLIC_URL + "/assets/headerLogo.svg"
+let headerLogo = process.env.PUBLIC_URL + "/assets/headerLogo.svg";
 
 /**
  * @component
- * Component Header for all pages. Contains the logo and the links for pages Home, Profil, Settings and Community
+ * @description Component Header for all pages. Contains the logo and the links for pages Home, Profil, Settings and Community
  */
-export default function Header() {
+function Header() {
 
 	return (
 
@@ -42,3 +42,8 @@ export default function Header() {
 	)
 }
 
+Header.propTypes = {
+
+}
+
+export default Header;

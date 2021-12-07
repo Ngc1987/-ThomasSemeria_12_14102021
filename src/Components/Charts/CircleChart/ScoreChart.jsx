@@ -1,7 +1,7 @@
-import React, {useState} from 'react'
-import "./ScoreChart.scss"
+import React, {useState} from 'react';
+import "./ScoreChart.scss";
 import { ResponsiveContainer ,PolarAngleAxis, RadialBarChart , RadialBar,Legend  } from 'recharts';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 /**
  * Format the legend who appears on center on the Circle Chart
@@ -24,11 +24,13 @@ const CustomizedLegend = ({payload}) => {
 
 
 /**
+ * Score chart component
  * @component
+ * @memberOf Dashboard
+ * @description Component who show the score of the day of the user on a circle chart
  * @param  {object} props Personal informations datas of the user
- * @returns Component who show the score of the day of the user on a circle chart
  */
-export default function ScoreChart(props) {
+function ScoreChart(props) {
 
 	// Take the datas we need on the props
 	const userDatas = props.data
@@ -97,5 +99,10 @@ export default function ScoreChart(props) {
 
 
 ScoreChart.propTypes = {
+	/**
+	 * User's datas, just a score of the day, who's display in percents
+	 */
 	data: PropTypes.object.isRequired,
 }
+
+export default ScoreChart;

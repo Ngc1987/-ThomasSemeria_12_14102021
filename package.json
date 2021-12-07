@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "better-docs": "^2.3.2",
     "d3": "^7.1.1",
     "netlify-cli": "^8.0.3",
     "react": "^17.0.2",
@@ -19,7 +20,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "jsdoc": "npx jsdoc ./src/ -r -c ./node_modules/jsdoc/conf.json"
   },
   "eslintConfig": {
     "extends": [
@@ -40,6 +42,8 @@
     ]
   },
   "devDependencies": {
-    "jsdoc": "^3.6.7"
+    "docdash": "^1.2.0",
+    "jsdoc": "^3.6.7",
+    "jsdoc-to-markdown": "^7.1.0"
   }
 }

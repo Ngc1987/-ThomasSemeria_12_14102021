@@ -1,13 +1,13 @@
-import React from 'react'
-import "./NavIcon.scss"
-import PropTypes from 'prop-types'
-import icons from "../../Helpers/icons"
+import React from 'react';
+import "./NavIcon.scss";
+import PropTypes from 'prop-types';
+import icons from "../../Helpers/icons";
 
 /**
  * @component
- * Component NavIcon who contains links for differents futurs pages of the app
+ * @description Component NavIcon who contains links for differents futurs pages of the app
  */
-export default function NavIcon(props) {
+const NavIcon = (props) => {
 
 	return (
 		<div className="navIcon">
@@ -19,5 +19,10 @@ export default function NavIcon(props) {
 }
 
 NavIcon.propTypes = {
+	/**
+	 * Just the pic to show on the component, according to the nutriment
+	 */
 	pic: PropTypes.string.isRequired,
 }
+
+export default NavIcon;

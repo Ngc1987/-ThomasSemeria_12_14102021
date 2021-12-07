@@ -2,12 +2,11 @@ import React from 'react'
 import "./Home.scss"
 import {Link} from "react-router-dom"
 
-
 /**
- * @description
- * Component who appears for the developement, we can choose between two users to simulate the app
+ * @component
+ * @description Component who appears for the developement, we can choose between two users to simulate the app
  * */
-export default function Home() {
+function Home() {
 	return (
 		<div className="home">
 			<h2>Bienvenue sur <em>SportSee</em></h2>
@@ -29,3 +28,9 @@ export default function Home() {
 		</div>
 	)
 }
+
+Home.propTypes = {
+
+}
+
+export default Home;

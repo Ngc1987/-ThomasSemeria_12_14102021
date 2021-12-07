@@ -3,9 +3,9 @@
 const BASE_URL = "";
 
 /**
+ * @description Function to create the url to fetch, who check if datas are mocked and add .json if needed
  * @param  {string} base First part of API adress ("" for mocked datas)
  * @param  {string} path Path of the desired end-point of the API
- * Function to create the url to fetch, who check if datas are mocked and add .json if needed
  */
 const createUrl = (base, path) => {
 	let url = `${base}${path}`
@@ -17,14 +17,14 @@ const createUrl = (base, path) => {
 };
 
 /**
+ * @description Function to fetch datas, and return response in json format
  * @param {string} url Path of the desired end-point of the API
- * Function to fetch datas, and return response in json format
  */
 const get = (url) => fetch(createUrl(BASE_URL, url)).then(response => response.json())
 
 /**
+ * @description Get all the user datas we need for all our components
  * @param  {number} userId Id of the user
- * Get all the user datas we need for all our components
  */
 export const getUserDatas = (userId) => {
 

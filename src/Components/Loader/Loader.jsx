@@ -1,12 +1,12 @@
-import React from 'react'
-import "./Loader.scss"
+import React from 'react';
+import "./Loader.scss";
 
 
 /**
  * @component
- * Component Loader who appears when the datas are not fetched yet
+ * @description Component Loader who appears when the datas are not fetched yet
  */
-export default function Loader() {
+function Loader() {
 	return (
 		<div className="diamonds">
 		<div className="diamond diamond-1"></div>
@@ -16,3 +16,9 @@ export default function Loader() {
 	  </div>
 	)
 }
+
+Loader.propTypes = {
+
+}
+
+export default Loader;

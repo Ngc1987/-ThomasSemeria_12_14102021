@@ -1,7 +1,7 @@
-import React from 'react'
-import "./Nutriment.scss"
-import PropTypes from 'prop-types'
-import icons from '../../Helpers/icons'
+import React from 'react';
+import "./Nutriment.scss";
+import PropTypes from 'prop-types';
+import icons from '../../Helpers/icons';
 
 // Object who contains the class names for the different nutriments
 const iconClassName = {
@@ -13,9 +13,9 @@ const iconClassName = {
 
 /**
  * @component
- * Component Nutriment who render the informations of the user for each nutriment
+ * @description Component Nutriment who render the informations of the user for each nutriment
  */
-export default function Nutriment(props) {
+function Nutriment(props) {
 	// console.log(props)
 	return (
 		<article className="nutriment" >
@@ -37,6 +37,14 @@ export default function Nutriment(props) {
 }
 
 Nutriment.propTypes = {
+	/**
+	 * The quantity of the nutriment who appears on the category
+	 */
 	quantity: PropTypes.number.isRequired,
+	/**
+	 * The nutriment who appears on the category
+	 */
 	nutriment: PropTypes.string.isRequired
 }
+
+export default Nutriment;

@@ -10,18 +10,22 @@
 ![Mockup of the project](https://i.imgur.com/Zv7tsy8.png)
 
 
-## 1. Author
+## 1. Documentation
+
+The documentation can be viewed by following the link below : [documentation]("https://github.com/Ngc1987/-ThomasSemeria_12_14102021/tree/master/docs/index.html)
+
+## 2. Author
 
 Thomas Semeria
 
 
-## 2. Languages
+## 3. Languages
 
 - JS
 - JSX
 - SCSS
 
-## 3. Project
+## 4. Project
 This project is the 12th project for the React front-end developer [formation](https://openclassrooms.com/fr/paths/516-developpeur-dapplication-javascript-react#main_content) of OpenClassRooms.
 We have to build an App who show on a dashboard differents informations of the user on some charts.
 For this project i use:
@@ -31,14 +35,14 @@ For this project i use:
 - [Sass](https://sass-lang.com/)
 - [Recharts.js](https://recharts.org/en-US)
 
-### 3.1 Prerequisites
+### 4.1 Prerequisites
 
 - [NodeJS (**version 12.18**)](https://nodejs.org/en/)
 
 If you are working with several versions of NodeJS, we recommend you install [nvm](https://github.com/nvm-sh/nvm). This tool will allow you to easily manage your NodeJS versions.
 
 
-### 3.2 Launching the project
+### 4.2 Launching the project
 
 - First Fork the [Back-end datas](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard) and follow the instructions to install it. When it's done write `npm start` on the terminal.
 Magic 🌟 happens and the API is hosted on http://localhost:3000
@@ -50,9 +54,9 @@ Magic 🌟 happens and the API is hosted on http://localhost:3000
 
 You can choose the user 12 or the user 18 to see differents datas
 
-## 4. Endpoints
+## 5. Endpoints
 
-### 4.1 Used endpoints
+### 5.1 Used endpoints
 
 To retrieve user information, the project uses the endpoints below: 
 
@@ -62,12 +66,9 @@ To retrieve user information, the project uses the endpoints below:
 - `http://localhost:3000/user/${userId}/performance` - retrieves a user's performance (energy, endurance, etc.).
 
 
-### 4.2 Examples of queries
+### 5.2 Examples of queries
 
 - `http://localhost:3000/user/12/performance` - Retrieves the performance of the user with id 12
 - `http://localhost:3000/user/18` - Retrieves user 18's main information.
 
 
-## 5. Documentation
-
-The documentation can be viewed by following the link below : [documentation]()

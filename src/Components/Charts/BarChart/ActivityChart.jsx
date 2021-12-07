@@ -1,6 +1,6 @@
-import React, { useState} from 'react'
-import "./ActivityChart.scss"
-import PropTypes from 'prop-types'
+import React, { useState} from 'react';
+import "./ActivityChart.scss";
+import PropTypes from 'prop-types';
 import {Tooltip, ResponsiveContainer, BarChart , CartesianGrid, XAxis, YAxis, Bar} from 'recharts';
 
 /**
@@ -24,10 +24,11 @@ const CustomizedToolTip = ({ active, payload }) => {
 
 /**
  * @component
+ * @memberOf Dashboard
+ * @description Component who show evolution on a few days of the weight and the used calories of the user, on a bar chart
  * @param  {object} props Activities datas of the user
- * @returns Component who show evolution on a few days of the weight and the used calories of the user, on a bar chart
  */
-export default function ActivityChart(props) {
+function ActivityChart(props) {
 	
 	// Take the datas we need on the props
 	let activityDatas = props.data.sessions
@@ -141,5 +142,10 @@ export default function ActivityChart(props) {
 
 
 ActivityChart.propTypes = {
+	/**
+	 * User's datas, daily burned calories and weight
+	 */
 	data: PropTypes.object.isRequired,
 }
+
+export default ActivityChart;

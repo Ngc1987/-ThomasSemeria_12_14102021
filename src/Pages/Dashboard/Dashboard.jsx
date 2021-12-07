@@ -1,24 +1,26 @@
 // import React, {useState, useEffect } from 'react'
-import "./Dashboard.scss"
-import ActivityChart from "../../Components/Charts/BarChart/ActivityChart"
-import SessionChart from '../../Components/Charts/LineChart/SessionChart'
-import PerformancesChart from '../../Components/Charts/RadarChart/PerformancesChart'
-import ScoreChart from '../../Components/Charts/CircleChart/ScoreChart'
-import Nutriment from '../../Components/Nutriment/Nutriment'
+import "./Dashboard.scss";
+import ActivityChart from "../../Components/Charts/BarChart/ActivityChart";
+// import SessionChart from '../../Components/Charts/LineChart/SessionChart';
+import SessionChartD3 from "../../Components/Charts/LineChart/SessionChartD3";
+import PerformancesChart from '../../Components/Charts/RadarChart/PerformancesChart';
+import ScoreChart from '../../Components/Charts/CircleChart/ScoreChart';
+import Nutriment from '../../Components/Nutriment/Nutriment';
 import { getUserDatas } from "../../CallsApis/requests";
-import {useState, useEffect} from 'react'
-import Loader from "../../Components/Loader/Loader"
-import Error from "../Error/Error"
-import User from "../../Models/User"
+import {useState, useEffect} from 'react';
+import Loader from "../../Components/Loader/Loader";
+import Error from "../Error/Error";
+import User from "../../Models/User";
 
-import LineChartD3 from "../../Components/Charts/LineChart/LineChartD3"
-import LineChart3 from "../../Components/Charts/LineChart/LineChart3"
-import LineChart4 from "../../Components/Charts/LineChart/LineChart4"
 
 /** 
+ * @component
+ * @namespace Dashboard
+ * 
  * @description This is component for Dashboard page, it handles 3 states (user => datas of the user, loader => if true, Loader component is rendered, 
  *   error => if true, Error component is rendered)
  * @returns If loader and error are false, the Dashboard is rendered, with first name, nutriments and some charts with fetched informations of the user
+ * 
  */
 function Dashboard() {
 
@@ -28,6 +30,7 @@ function Dashboard() {
 	const [error, setError] = useState(null)
 	// User Id, taking from the url
 	const userId = window.location.pathname.split("/")[2];
+	console.log(userId)
 	// let userSessions = user.sessions.sessions
 	console.log(userSessions)
 	// Array.map(userSessionsApi.data.sessions, day => { day.sessionLength })
@@ -72,10 +75,7 @@ function Dashboard() {
 						<ActivityChart data={user.activities} />
 
 						<div className="dashboard__graphs__charts-smalls">
-							{/* <SessionChart data={user} sessions={userSessions} /> */}
-							{/* <LineChartD3 data={userSessions} /> */}
-							<LineChart4 data={user} sessions={userSessions} />
-							{/* <LineChart3 data={user} sessions={userSessions}/> */}
+							<SessionChartD3 data={user} sessions={userSessions} />
 							<PerformancesChart data={user.performances} />
 							<ScoreChart data={user.infos}/>
 						</div>
@@ -94,6 +94,10 @@ function Dashboard() {
 			</section>
 		</>
 	)
+}
+
+Dashboard.propTypes = {
+
 }
 
 

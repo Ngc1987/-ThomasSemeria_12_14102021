@@ -1,14 +1,13 @@
-import React from 'react'
-import "./VerticalLayout.scss"
-import NavIcon from '../NavIcon/NavIcon'
-
+import React from 'react';
+import "./VerticalLayout.scss";
+import NavIcon from '../NavIcon/NavIcon';
 
 // 
 /**
  * @component
- * Component Vertical Layout who appears on the left of the app for all pages and contains the NavIcons
+ * @description Component Vertical Layout who appears on the left of the app for all pages and contains the NavIcons
  */
-export default function VerticalLayout() {
+function VerticalLayout() {
 	return (
 		<div className="verticalLayout">
 			<div className="verticalLayout-div">
@@ -22,3 +21,9 @@ export default function VerticalLayout() {
 		</div>
 	)
 }
+
+VerticalLayout.propTypes = {
+
+}
+
+export default VerticalLayout;

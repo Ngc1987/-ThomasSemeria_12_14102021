@@ -1,4 +1,10 @@
-// Class User we need on the Dashboard component to create a new user when we fetch his datas
+/**
+ * @param  {Array} infos
+ * @param  {Array} activities
+ * @param  {Array} sessions
+ * @param  {Array} performances
+ * @
+ */// Class User we need on the Dashboard component to create a new user when we fetch his datas
 class User {
 	constructor(infos, activities, sessions, performances) {
 		this.infos = infos.data;
