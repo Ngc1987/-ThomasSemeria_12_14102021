@@ -36,18 +36,18 @@ function SessionChartD3(props) {
 			.append("svg")
 			.attr("width", "100%")
 			.attr("height", "100%")
-		// Clean obsolete chart 🗑️
+		// Clean the svg chart if the component re-render
 		chart.selectAll(".lineChart .d3").remove()
 		let min = d3.min(sessData)
 		let max = d3.max(sessData)
 		let xScale = d3.scaleLinear()
 			.domain([0.5, 7.5])
 			.range([-50, 200])
-					// console.log(d3.extent(userData, d => d.day))
+		// console.log(d3.extent(userData, d => d.day))
 		let yScale = d3.scaleLinear()
 			.domain([min, max + 30])
 			.range([height - 40, 0])
-		// register our line
+		// Register the line
 		let line = d3.line()
 			.x(d => d.x || xScale(d.day))
 			.y(d => d.y || yScale(d.sessionLength))
@@ -55,7 +55,7 @@ function SessionChartD3(props) {
 
 		const linePath = line(userDatas);
 
-		//draw our path ✍🏼
+		// Draw the path
 		chart.append("path")
 			.datum(getPathCoordinates([-15, 0, 15, 30, 45, 60, 75, 90, 100, 115]))
 			.attr("d", linePath)
@@ -63,12 +63,11 @@ function SessionChartD3(props) {
 			.attr("stroke", "white")
 			.attr("stroke-width", "3")
 			.attr("fill", "none")
-
-			// launch a transition lineTween with the data 
+			// launch the transition for the line chart
 			.transition()
 			.duration(750)
 			.call(lineTween)
-		// add data points and bubbles
+		// Add coordinates for the points to draw info box, transparent div...
 		// eslint-disable-next-line array-callback-return
 		getPathCoordinates([...userData]).map((coordinates, index) => {
 			let group = chart.append("g")
@@ -112,7 +111,7 @@ function SessionChartD3(props) {
 				.attr("height", 300)
 				.attr("class", "d3")
 				.attr("opacity", "0")
-				// make it appear on hover + make the infos appears
+				// Make appear informations on hover
 				.on("mouseover", function () {
 					d3.selectAll(`#session${index} > *`).transition()
 						.attr("opacity", "1")
@@ -123,7 +122,7 @@ function SessionChartD3(props) {
 				})
 
 		})
-		// Register our fantastic transition ✨
+		// Register the transition
 		function lineTween(transition) {
 			transition.attrTween("d", function (d) {
 				let interpolateEnd = d3.interpolate(d, getPathCoordinates([20, ...userData, 75]))
@@ -133,7 +132,7 @@ function SessionChartD3(props) {
 				}
 			})
 		}
-		// Some tools to transform our data into coordinates and path 🛠️
+		// Function to get the coordiantes of the points to draw
 		function getPathCoordinates(dataPoints) {
 			let coordinates = dataPoints.map((point, index) => (
 				{
@@ -144,7 +143,7 @@ function SessionChartD3(props) {
 			console.log(coordinates)
 			return coordinates
 		}
-		// Just to be sure a bubble don't go outside the chart
+		// Function to make the last day box appear on the chart and not outside
 		function getBubbleXCoordinate(x) {
 			if (x <= 170) return x
 			else return 125
@@ -167,8 +166,6 @@ function SessionChartD3(props) {
 		</div>
 	)
 }
-
-
 
 SessionChartD3.propTypes = {
 	/**

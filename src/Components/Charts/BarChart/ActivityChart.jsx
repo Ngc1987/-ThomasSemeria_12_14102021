@@ -21,7 +21,6 @@ const CustomizedToolTip = ({ active, payload }) => {
 	return null;
 };
 
-
 /**
  * @component
  * @memberOf Dashboard
