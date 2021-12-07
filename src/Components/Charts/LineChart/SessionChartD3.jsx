@@ -146,8 +146,8 @@ function SessionChartD3(props) {
 		}
 		// Just to be sure a bubble don't go outside the chart
 		function getBubbleXCoordinate(x) {
-			if (x <= 200) return x
-			else return 165
+			if (x <= 170) return x
+			else return 125
 		}
 	}
 
