@@ -20,7 +20,7 @@ const createUrl = (base, path) => {
  * @description Function to fetch datas, and return response in json format
  * @param {string} url Path of the desired end-point of the API
  */
-const get = (url) => fetch(createUrl(BASE_URL, url)).then(response => response.json())
+const getApiDatas = (url) => fetch(createUrl(BASE_URL, url)).then(response => response.json())
 
 /**
  * @description Get all the user datas we need for all our components
@@ -28,10 +28,14 @@ const get = (url) => fetch(createUrl(BASE_URL, url)).then(response => response.j
  */
 export const getUserDatas = (userId) => {
 
-	let userData =  get(process.env.PUBLIC_URL + `/user/${userId}`)
-	let activityData =  get(process.env.PUBLIC_URL + `/user/${userId}/activity`)
-	let sessionData =  get(process.env.PUBLIC_URL + `/user/${userId}/average-sessions`)
-	let perfData =  get(process.env.PUBLIC_URL + `/user/${userId}/performance`)
+	let userData =  getApiDatas(process.env.PUBLIC_URL + `/user/${userId}`)
+	let activityData =  getApiDatas(process.env.PUBLIC_URL + `/user/${userId}/activity`)
+	let sessionData =  getApiDatas(process.env.PUBLIC_URL + `/user/${userId}/average-sessions`)
+	let perfData =  getApiDatas(process.env.PUBLIC_URL + `/user/${userId}/performance`)
+	
+	// Just two lines to check if these routes are working (user stories 8 and 10)
+	console.log(getApiDatas(process.env.PUBLIC_URL + `/user/${userId}/today-score`).then((res) => console.log(res)))
+	console.log(getApiDatas(process.env.PUBLIC_URL + `/user/${userId}/key-data`).then((res) => console.log(res)))
 
     return Promise.all([userData, activityData, sessionData, perfData])
 }

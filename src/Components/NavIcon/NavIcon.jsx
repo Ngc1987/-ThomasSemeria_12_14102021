@@ -5,6 +5,7 @@ import icons from "../../Helpers/icons";
 
 /**
  * @component
+ * @memberOf Nutriment
  * @description Component NavIcon who contains links for differents futurs pages of the app
  */
 const NavIcon = (props) => {

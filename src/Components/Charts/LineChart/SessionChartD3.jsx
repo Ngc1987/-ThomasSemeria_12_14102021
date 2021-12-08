@@ -11,12 +11,12 @@ import PropTypes from 'prop-types';
  */
 function SessionChartD3(props) {
 
-	console.log(props)
+	// console.log(props)
 	const userDatas = props.data.sessions.sessions
 	// eslint-disable-next-line no-unused-vars
 	const [userData, setUserData] = useState(userDatas)
 
-	console.log(userData)
+	// console.log(userData)
 	const sessData = props.sessions
 
 	useEffect(() => {
@@ -140,7 +140,7 @@ function SessionChartD3(props) {
 					y: (215 - 215 * (point / 144)) || yScale(point.sessionLength)
 				}
 			))
-			console.log(coordinates)
+			// console.log(coordinates)
 			return coordinates
 		}
 		// Function to make the last day box appear on the chart and not outside

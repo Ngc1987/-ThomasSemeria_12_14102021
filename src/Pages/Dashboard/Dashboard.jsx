@@ -1,7 +1,5 @@
-// import React, {useState, useEffect } from 'react'
 import "./Dashboard.scss";
 import ActivityChart from "../../Components/Charts/BarChart/ActivityChart";
-// import SessionChart from '../../Components/Charts/LineChart/SessionChart';
 import SessionChartD3 from "../../Components/Charts/LineChart/SessionChartD3";
 import PerformancesChart from '../../Components/Charts/RadarChart/PerformancesChart';
 import ScoreChart from '../../Components/Charts/CircleChart/ScoreChart';
@@ -11,6 +9,7 @@ import {useState, useEffect} from 'react';
 import Loader from "../../Components/Loader/Loader";
 import Error from "../Error/Error";
 import User from "../../Models/User";
+import {useParams} from "react-router-dom"
 
 
 /** 
@@ -24,26 +23,23 @@ import User from "../../Models/User";
  */
 function Dashboard() {
 
-	const [user, setUserAllDatas] = useState({})
+	const [user, setUser] = useState({})
 	const [userSessions, setUserSessions] = useState({})
 	const [isLoaded, setIsLoaded] = useState(false)
 	const [error, setError] = useState(null)
-	// User Id, taking from the url
-	const userId = window.location.pathname.split("/")[2];
-	console.log(userId)
-	// let userSessions = user.sessions.sessions
-	console.log(userSessions)
-	// Array.map(userSessionsApi.data.sessions, day => { day.sessionLength })
-	
+	// User Id, taking from the url params
+	const {userId} = useParams();
+
 	useEffect(() => {
 		getUserDatas(userId)
 			.then((result) => {
+				// console.log(result)
 				let user = new User(result[0], result[1], result[2], result[3])
-				let userSess = user.sessions.sessions
-				const userSesses = [...userSess].map((day) => day.sessionLength)
-				console.log(userSesses)
-				setUserAllDatas(user)
-				setUserSessions(userSesses)
+				let userSession = user.sessions.sessions
+				const userSessionsLength = [...userSession].map((day) => day.sessionLength)
+				// console.log(userSession, userSessionsLength)
+				setUser(user)
+				setUserSessions(userSessionsLength)
 				setIsLoaded(true)
 			})
 			.catch(err => {

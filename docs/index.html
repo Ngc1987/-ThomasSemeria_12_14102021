@@ -27,7 +27,33 @@
 
 <nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Dashboard.html">Dashboard</a></li><li><a href="Dashboard.ActivityChart.html">ActivityChart</a></li><li><a href="Dashboard.PerformancesChart.html">PerformancesChart</a></li><li><a href="Dashboard.ScoreChart.html">ScoreChart</a></li><li><a href="Dashboard.SessionChartD3.html">SessionChartD3</a></li><li><a href="Error.html">Error</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="Loader.html">Loader</a></li><li><a href="module.exports.html">exports</a></li><li><a href="NavIcon.html">NavIcon</a></li><li><a href="Nutriment.html">Nutriment</a></li><li><a href="VerticalLayout.html">VerticalLayout</a></li></ul><h3>Global</h3><ul><li><a href="global.html#createUrl">createUrl</a></li><li><a href="global.html#CustomizedLegend">CustomizedLegend</a></li><li><a href="global.html#CustomizedToolTip">CustomizedToolTip</a></li><li><a href="global.html#CustomizedTooltip">CustomizedTooltip</a></li><li><a href="global.html#get">get</a></li><li><a href="global.html#getUserDatas">getUserDatas</a></li></ul>
+    <h2><a href="index.html">Home</a></h2>
+    <h3>Pages</h3>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Dashboard.html">Dashboard</a></li>
+            <li><a href="Error.html">Error</a></li>
+        </ul>
+    <h3>Functionnal components </h3>
+        <ul>
+            <li><a href="Dashboard.ActivityChart.html">ActivityChart</a></li>
+            <li><a href="Dashboard.PerformancesChart.html">PerformancesChart</a></li>
+            <li><a href="Dashboard.ScoreChart.html">ScoreChart</a></li>
+            <li><a href="Dashboard.SessionChartD3.html">SessionChartD3</a></li>
+            <li><a href="Dashboard.Nutriment.html">Nutriment</a></li>
+            <li><a href="Nutriment.NavIcon.html">NavIcon</a></li>
+            <li><a href="Header.html">Header</a></li>
+            <li><a href="Loader.html">Loader</a></li>
+            <li><a href="VerticalLayout.html">VerticalLayout</a></li>
+        </ul>
+    <h3>Global</h3>
+        <ul>
+            <li><a href="global.html#createUrl">createUrl</a></li>
+            <li><a href="global.html#CustomizedLegend">CustomizedLegend</a></li>
+            <li><a href="global.html#CustomizedToolTip">CustomizedToolTip</a></li>
+            <li><a href="global.html#CustomizedTooltip">CustomizedTooltip</a></li>
+            <li><a href="global.html#getApiDatas">getApiDatas</a></li>
+            <li><a href="global.html#getUserDatas">getUserDatas</a></li></ul>
 </nav>
 
 <div id="main">
@@ -63,15 +89,17 @@
 🏃 The SportSee app measures your performance and fitness indicators. You can easily track your physical activity 🏃
 </p>
 <p><img src="https://i.imgur.com/Zv7tsy8.png" alt="Mockup of the project"></p>
-<h2>1. Author</h2>
+<h2>1. Documentation</h2>
+<p>The documentation can be viewed by following the link below : <a href="https://github.com/Ngc1987/-ThomasSemeria_12_14102021/tree/master/docs/index.html">documentation</a></p>
+<h2>2. Author</h2>
 <p>Thomas Semeria</p>
-<h2>2. Languages</h2>
+<h2>3. Languages</h2>
 <ul>
 <li>JS</li>
 <li>JSX</li>
 <li>SCSS</li>
 </ul>
-<h2>3. Project</h2>
+<h2>4. Project</h2>
 <p>This project is the 12th project for the React front-end developer <a href="https://openclassrooms.com/fr/paths/516-developpeur-dapplication-javascript-react#main_content">formation</a> of OpenClassRooms.
 We have to build an App who show on a dashboard differents informations of the user on some charts.
 For this project i use:</p>
@@ -81,12 +109,12 @@ For this project i use:</p>
 <li><a href="https://sass-lang.com/">Sass</a></li>
 <li><a href="https://recharts.org/en-US">Recharts.js</a></li>
 </ul>
-<h3>3.1 Prerequisites</h3>
+<h3>4.1 Prerequisites</h3>
 <ul>
 <li><a href="https://nodejs.org/en/">NodeJS (<strong>version 12.18</strong>)</a></li>
 </ul>
 <p>If you are working with several versions of NodeJS, we recommend you install <a href="https://github.com/nvm-sh/nvm">nvm</a>. This tool will allow you to easily manage your NodeJS versions.</p>
-<h3>3.2 Launching the project</h3>
+<h3>4.2 Launching the project</h3>
 <ul>
 <li>First Fork the <a href="https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard">Back-end datas</a> and follow the instructions to install it. When it's done write <code>npm start</code> on the terminal.
 Magic 🌟 happens and the API is hosted on http://localhost:3000</li>
@@ -97,8 +125,8 @@ Magic 🌟 happens and the API is hosted on http://localhost:3000</li>
 <li>You can now do an <code>npm start</code> and the App is now hosted on http://localhost:3001</li>
 </ul>
 <p>You can choose the user 12 or the user 18 to see differents datas</p>
-<h2>4. Endpoints</h2>
-<h3>4.1 Used endpoints</h3>
+<h2>5. Endpoints</h2>
+<h3>5.1 Used endpoints</h3>
 <p>To retrieve user information, the project uses the endpoints below:</p>
 <ul>
 <li><code>http://localhost:3000/user/${userId}</code> - retrieves information from a user. This first endpoint includes the user id, user information (first name, last name and age), the current day's score (todayScore) and key data (calorie, macronutrient, etc.).</li>
@@ -106,13 +134,11 @@ Magic 🌟 happens and the API is hosted on http://localhost:3000</li>
 <li><code>http://localhost:3000/user/${userId}/average-sessions</code> - retrieves the average sessions of a user per day. The week starts on Monday.</li>
 <li><code>http://localhost:3000/user/${userId}/performance</code> - retrieves a user's performance (energy, endurance, etc.).</li>
 </ul>
-<h3>4.2 Examples of queries</h3>
+<h3>5.2 Examples of queries</h3>
 <ul>
 <li><code>http://localhost:3000/user/12/performance</code> - Retrieves the performance of the user with id 12</li>
 <li><code>http://localhost:3000/user/18</code> - Retrieves user 18's main information.</li>
-</ul>
-<h2>5. Documentation</h2>
-<p>The documentation can be viewed by following the link below : <a href="">documentation</a></p></article>
+</ul></article>
     </section>
 
 
@@ -127,7 +153,7 @@ Magic 🌟 happens and the API is hosted on http://localhost:3000</li>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Tue Dec 07 2021 18:22:44 GMT+0100 (heure normale d’Europe centrale) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Wed Dec 08 2021 16:50:23 GMT+0100 (heure normale d’Europe centrale) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

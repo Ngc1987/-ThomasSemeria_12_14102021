@@ -13,6 +13,8 @@ const iconClassName = {
 
 /**
  * @component
+ * @memberOf Dashboard
+ * @namespace Nutriment
  * @description Component Nutriment who render the informations of the user for each nutriment
  */
 function Nutriment(props) {

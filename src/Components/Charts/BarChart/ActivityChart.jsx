@@ -23,6 +23,7 @@ const CustomizedToolTip = ({ active, payload }) => {
 
 /**
  * @component
+ * @category Graph
  * @memberOf Dashboard
  * @description Component who show evolution on a few days of the weight and the used calories of the user, on a bar chart
  * @param  {object} props Activities datas of the user

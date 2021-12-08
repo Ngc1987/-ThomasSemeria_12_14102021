@@ -18,7 +18,7 @@ function App() {
               <main>
                   <Switch>
                       <Route path="/" exact component={Home} />
-                      <Route path="/user" component={Dashboard} />
+                      <Route path="/user/:userId" component={Dashboard} />
                       <Route path="*" component={Error} />
                   </Switch>
               </main>
