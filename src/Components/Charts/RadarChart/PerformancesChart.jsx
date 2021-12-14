@@ -64,7 +64,7 @@ function PerformancesChart(props) {
 					
 					<PolarAngleAxis 
 					dataKey="kind"
-					tick={true}
+					tick={false}
 					tickLine={true}
 					axisLine={true}
 					type="category"
