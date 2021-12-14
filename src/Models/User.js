@@ -14,11 +14,11 @@ class User {
 	}
 
 	getFirstName = () => {
-		return this.infos.userInfos.firstName
+		return this.infos.userInfos.firstName;
 	}
 
 	getNutriment = (name) => {
-		return this.infos.keyData[name]
+		return this.infos.keyData[name];
 	}
 }
 

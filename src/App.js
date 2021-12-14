@@ -4,7 +4,7 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import Home from './Pages/Home/Home';
 import VerticalLayout from './Components/VerticalLayout/VerticalLayout';
 import Error from './Pages/Error/Error';
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 function App() {
 

@@ -9,7 +9,7 @@ import {useState, useEffect} from 'react';
 import Loader from "../../Components/Loader/Loader";
 import Error from "../Error/Error";
 import User from "../../Models/User";
-import {useParams} from "react-router-dom"
+import {useParams} from "react-router-dom";
 
 
 /** 
@@ -22,29 +22,32 @@ import {useParams} from "react-router-dom"
  * 
  */
 function Dashboard() {
-
-	const [user, setUser] = useState({})
-	const [userSessions, setUserSessions] = useState({})
-	const [isLoaded, setIsLoaded] = useState(false)
-	const [error, setError] = useState(null)
+	// user datas, fetched in the useEffect in getUserDatas
+	const [user, setUser] = useState({});
+	// user Sessions datas, fetched in the useEffect in getUserDatas, to have an array with only the day datas, to display on the session chart
+	const [userSessions, setUserSessions] = useState({});
+	// isLoaded and error, to display a loader or an error if we have some problems when fetching the datas
+	const [isLoaded, setIsLoaded] = useState(false);
+	const [error, setError] = useState(null);
 	// User Id, taking from the url params
 	const {userId} = useParams();
 
 	useEffect(() => {
 		getUserDatas(userId)
 			.then((result) => {
-				// console.log(result)
-				let user = new User(result[0], result[1], result[2], result[3])
-				let userSession = user.sessions.sessions
-				const userSessionsLength = [...userSession].map((day) => day.sessionLength)
-				// console.log(userSession, userSessionsLength)
-				setUser(user)
-				setUserSessions(userSessionsLength)
-				setIsLoaded(true)
+				// Create a new User from the User class, with the fetched datas on parameters
+				let user = new User(result[0], result[1], result[2], result[3]);
+				setUser(user);
+				// Taking the datas we need for the sessionsChart, only an array of days
+				let userSession = user.sessions.sessions;
+				const userSessionsLength = [...userSession].map((day) => day.sessionLength);
+				setUserSessions(userSessionsLength);
+				
+				setIsLoaded(true);
 			})
 			.catch(err => {
-				setError(true)
-				setIsLoaded(true)
+				setError(true);
+				setIsLoaded(true);
 			})
 		}, [userId])
 

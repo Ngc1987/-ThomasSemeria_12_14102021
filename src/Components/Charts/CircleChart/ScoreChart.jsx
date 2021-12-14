@@ -1,20 +1,20 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import "./ScoreChart.scss";
-import { ResponsiveContainer ,PolarAngleAxis, RadialBarChart , RadialBar,Legend  } from 'recharts';
+import { ResponsiveContainer, PolarAngleAxis, RadialBarChart, RadialBar, Legend } from 'recharts';
 import PropTypes from 'prop-types';
 
 /**
  * Format the legend who appears on center on the Circle Chart
  * @param  {} payload datas we need to take to show informations on the legend
  */
-const CustomizedLegend = ({payload}) => {
+const CustomizedLegend = ({ payload }) => {
 
 	if (payload && payload.length) {
 		return (
 			<div className="custom-legend">
-			  <h1 className="desc">{payload[0].value + "%"}</h1>
-			  <p>de votre</p>
-			  <p>objectif</p>
+				<h1 className="desc">{payload[0].value + "%"}</h1>
+				<p>de votre</p>
+				<p>objectif</p>
 			</div>
 		)
 	}
@@ -37,7 +37,7 @@ function ScoreChart(props) {
 	// eslint-disable-next-line no-unused-vars
 	const [data, setScore] = useState(userDatas)
 	// making the datas i need for the chart, just the name, and the value who need to be translated in percents
-	let score = [{"name": "score", "value": (data.todayScore * 100)}]
+	let score = [{ "name": "score", "value": (data.todayScore * 100) }]
 
 	return (
 
@@ -47,48 +47,48 @@ function ScoreChart(props) {
 			<div className="path"></div>
 
 			<ResponsiveContainer>
-			
-				<RadialBarChart 
-				width={"100%"} 
-				height={"100%"} 
-				innerRadius="72%" 
-				outerRadius="85%" 
-				data={score} 
-				startAngle={90} 
-				endAngle={450}
+
+				<RadialBarChart
+					width={"100%"}
+					height={"100%"}
+					innerRadius="72%"
+					outerRadius="85%"
+					data={score}
+					startAngle={90}
+					endAngle={450}
 				>
 
-					<PolarAngleAxis 
-					type="number" 
-					domain={[0, 100]} 
-					dataKey={'value'} 
-					angleAxisId={0} 
-					tick={false} 
-					/>
-					
-					<RadialBar 
-					minAngle={5} 
-					fill="#E60000"
-					background={{fill: "#fff"}}
-					position="center"
-					clockWise={true} 
-					dataKey="value"
-					legendType="square"
-					data={score}
-					cornerRadius="50%"
+					<PolarAngleAxis
+						type="number"
+						domain={[0, 100]}
+						dataKey={'value'}
+						angleAxisId={0}
+						tick={false}
 					/>
 
-					<Legend 
-					iconSize={10} 
-					width={20} 
-					height={20} 
-					layout='vertical' 
-					verticalAlign='top' 
-					align="center" 
-					payload={score}
-					content={<CustomizedLegend/>}
+					<RadialBar
+						minAngle={5}
+						fill="#E60000"
+						background={{ fill: "#fff" }}
+						position="center"
+						clockWise={true}
+						dataKey="value"
+						legendType="square"
+						data={score}
+						cornerRadius="50%"
 					/>
-					
+
+					<Legend
+						iconSize={10}
+						width={20}
+						height={20}
+						layout='vertical'
+						verticalAlign='top'
+						align="center"
+						payload={score}
+						content={<CustomizedLegend />}
+					/>
+
 				</RadialBarChart>
 
 			</ResponsiveContainer>

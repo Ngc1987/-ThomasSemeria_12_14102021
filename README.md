@@ -11,6 +11,11 @@
 
 ![Mockup of the project](https://i.imgur.com/Zv7tsy8.png)
 
+<p align="center">
+<a href="https://sportseeapp.netlify.app/">🌍 Live démo
+</a>
+</p>
+
 
 ## 1. Documentation
 

@@ -98,7 +98,7 @@ function SessionChartD3(props) {
 				.attr("opacity", "0")
 			group.append("circle")
 				.attr("class", "d3")
-				.attr("cx", coordinates.x + 37)
+				.attr("cx", coordinates.x + 39)
 				.attr("cy", coordinates.y)
 				.attr("r", 4)
 				.attr("opacity", "0")
