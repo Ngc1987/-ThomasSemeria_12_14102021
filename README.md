@@ -33,8 +33,6 @@ Thomas Semeria
 - SCSS
 
 ## 4. Project
-This project is the 12th project for the React front-end developer [formation](https://openclassrooms.com/fr/paths/516-developpeur-dapplication-javascript-react#main_content) of OpenClassRooms.
-We have to build an App who show on a dashboard differents informations of the user on some charts.
 For this project i use:
 
 - [React](https://reactjs.org/)
